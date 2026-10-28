@@ -185,7 +185,9 @@ function estimate(state) {
 
 
 
-// Unit prices come from the company's published catalogue, not competitor guides.
+// Hotel prices use the company catalogue with the owner's approved 5% increase.
+// Keep the base catalogue intact so the adjustment is applied exactly once.
+const HOTEL_RATE_PERCENT=105;
 const HOTEL_CATEGORIES=['Αποξηλώσεις','Νέες εργασίες','Μπάνιο','Εξοπλισμός'];
 const HOTEL_WORKS=[
   {id:'remove-floor',cat:0,name:'Αποξήλωση πλακιδίων δωματίου',unit:'m²',source:84,note:'Δάπεδο δωματίου, εκτός μπάνιου. Με αποκομιδή μπαζών.'},
@@ -225,7 +227,9 @@ function hotelRate(work,materials,bathArea){
     if(area===null||area<=0||area>9)return {price:null,pending:work.name+' — μέγεθος και προδιαγραφές μπάνιου'};
     source=work.prices[area<=3?0:area<=4?1:2];
   }else if(work.labor!==undefined)source=materials==='without'?work.labor:work.materials;
-  return {price:ITEMS[source].price,pending:work.supply&&materials!=='without'?work.supply:null,source};
+  const baseCents=Math.round(ITEMS[source].price*100);
+  const price=Math.round(baseCents*HOTEL_RATE_PERCENT/100)/100;
+  return {price,pending:work.supply&&materials!=='without'?work.supply:null,source};
 }
 
 function estimateHotel(state){
