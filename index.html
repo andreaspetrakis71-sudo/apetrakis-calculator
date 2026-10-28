@@ -20,6 +20,7 @@ dialog{border:1px solid var(--line);border-radius:16px;color:var(--ink);padding:
     <section class="mode-panel" aria-labelledby="modeTitle">
       <h2 id="modeTitle">Τι θέλεις να υπολογίσεις;</h2>
       <div class="mode-buttons"><button id="modeBuild" class="mode-btn active" type="button" aria-pressed="true">ΝΕΑ ΑΝΕΓΕΡΣΗ</button><button id="modeReno" class="mode-btn" type="button" aria-pressed="false">ΑΝΑΚΑΙΝΙΣΗ</button></div>
+      <p class="hint"><strong>Ανακαίνιση ξενοδοχείου;</strong> Υπολόγισε αποξηλώσεις, νέες εργασίες και μπάνιο ανά δωμάτιο. <a href="./hotel.html">Άνοιγμα υπολογιστή ξενοδοχείου →</a></p>
       <div class="project-area"><label for="projectArea">Επιφάνεια οικοδομής (m²), προαιρετικά</label><input id="projectArea" type="text" inputmode="decimal" placeholder="π.χ. 120"><small>Στη συνέχεια βάλε τις ποσότητες κάθε εργασίας από τη μελέτη του μηχανικού σου.</small></div>
       <p class="muted">Διάλεξε κατηγορία, συμπλήρωσε ποσότητες και συνέχισε στην επόμενη. Οι επιλογές σου διατηρούνται. Όλα τα ποσά είναι καθαρά, πλέον ΦΠΑ.</p>
       <button type="button" class="secondary" id="openStudy">Έχεις μελέτη; Στείλε αρχεία για εκτίμηση ↗</button>
@@ -454,12 +455,23 @@ function renderTax(){
 for(const id of ['taxNet','taxVat','taxWithholding'])$(id).oninput=renderTax;
 $('taxWithholdingPreset').onchange=()=>{$('taxWithholding').value=$('taxWithholdingPreset').value;renderTax();};
 $('taxUseEstimate').onclick=()=>{const r=estimate(state);if(r.valid&&r.lines.length){$('taxNet').value=(r.netCents/100).toFixed(2);$('taxVat').value=settings().vatRate;renderTax();}else $('taxOutput').innerHTML='<p class="field-error">Ολοκλήρωσε πρώτα την επιλογή εργασιών ή πληκτρολόγησε ανεξάρτητο καθαρό ποσό.</p>';};
+let hotelBrief='';
+if(location.hash==='#study'){
+  try{
+    const hotelPayload=JSON.parse(sessionStorage.getItem('apetrakis.hotel.brief')||'null');
+    if(hotelPayload?.schema==='apetrakis-hotel-brief-v1'&&typeof hotelPayload.message==='string'&&hotelPayload.message.length<=20000){
+      hotelBrief=hotelPayload.message;
+      $('studyMessage').value=hotelBrief.slice(0,6000);
+      sessionStorage.removeItem('apetrakis.hotel.brief');
+    }
+  }catch{}
+}
 $('studyForm').onsubmit=event=>{
   const files=['studyAttachment','studyAttachment2','studyAttachment3'].flatMap(id=>Array.from($(id).files||[]));
   const size=files.reduce((sum,file)=>sum+file.size,0);
   if(size>10000000){event.preventDefault();$('studyStatus').textContent='Τα αρχεία ξεπερνούν συνολικά τα 10 MB. Διάλεξε μικρότερα αρχεία ή στείλε τη μελέτη με email.';return;}
   const result=estimate(state);
-  $('studyBrief').value=result.valid&&result.lines.length?requestMessage(result):'Δεν έχει ολοκληρωθεί χειροκίνητος υπολογισμός.';
+  $('studyBrief').value=hotelBrief||(result.valid&&result.lines.length?requestMessage(result):'Δεν έχει ολοκληρωθεί χειροκίνητος υπολογισμός.');
   $('studyStatus').textContent='Η αποστολή ολοκληρώνεται στο παράθυρο επιβεβαίωσης που ανοίγει. Οι επιλογές του υπολογιστή παραμένουν εδώ.';
 };
 $('clear').onclick=()=>{const fresh=createState();state.selections[state.mode]={};state.calculated[state.mode]=false;state.open[state.mode]=null;state.settings[state.mode]=fresh.settings[state.mode];setMode(state.mode);$('catalogPanel').scrollIntoView({behavior:'smooth',block:'start'});};
