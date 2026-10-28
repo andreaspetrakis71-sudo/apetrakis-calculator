@@ -1,18 +1,82 @@
-<!doctype html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A. PETRAKIS | Αναλυτικός υπολογιστής 2026</title><style>
-*{box-sizing:border-box}body{font:15px Arial,sans-serif;background:#f3f5f7;color:#17232e;margin:0}header{background:#172b3c;color:white;padding:24px 14px}.wrap{max-width:1100px;margin:auto;padding:12px}section{background:white;border:1px solid #dce3e8;border-radius:12px;padding:16px;margin:14px 0}h1{font-size:23px;margin:0 0 5px}h2{font-size:19px;margin:0 0 12px}p{line-height:1.5}.muted{color:#5b6873;font-size:13px}input,textarea,select{font:inherit;padding:10px;border:1px solid #b9c5ce;border-radius:7px;max-width:100%}input[type=number]{width:90px}input[type=search]{width:100%}textarea{width:100%;min-height:100px}button{background:#214967;color:white;border:0;border-radius:7px;padding:10px 12px;cursor:pointer;font-weight:600}button.secondary{background:#e6edf1;color:#20384b}button:disabled{opacity:.45}.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.catalog{max-height:570px;overflow:auto;border:1px solid #e2e8ed;border-radius:8px}.item{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:12px;border-bottom:1px solid #e8edf1}.item small{display:block;color:#65717a;margin-top:5px}.price{font-weight:bold;white-space:nowrap}.group{background:#e8eff4;padding:12px;font-weight:bold;position:sticky;top:0}.total{font-size:25px;font-weight:bold}.line{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #e5eaee}.line button{padding:5px 9px}.hint{padding:10px;background:#f1f5f8;border-radius:7px;margin:10px 0}.suggest{padding:10px;border-bottom:1px solid #e2e8ed}footer{padding:20px}.bad{color:#9a3c2b}@media(max-width:560px){.item{grid-template-columns:1fr auto}.item button{grid-column:2}.item .price{grid-column:1;grid-row:2}.tools>*{flex:1}h1{font-size:20px}}@media print{header,button,#catalogPanel,#studyPanel,.tools{display:none!important}body{background:white}section{border:0}.wrap{max-width:none}}
-/* Mobile-first navigation and readable cards */
-body{font-size:16px;background:#f4f6f8}header{padding:19px 8px}header .wrap{padding:6px 14px}header h1{font-size:21px;line-height:1.3}.wrap{padding:10px;max-width:900px}section{padding:17px 14px;margin:12px 0;border-radius:15px}h2{font-size:21px;line-height:1.3}.mode-panel{background:#fff;border:1px solid #dce3e8;border-radius:15px;padding:16px 14px;margin:12px 0}.mode-panel h2{margin:0 0 12px}.mode-buttons{display:grid;grid-template-columns:1fr;gap:12px}.mode-btn{min-height:88px;border-radius:13px;background:#e8edf2;color:#203449;border:2px solid transparent;font-size:19px;font-weight:800;padding:10px 6px}.mode-btn.active{background:#173c59;color:white;border-color:#173c59}.mode-description{margin:12px 0 0;color:#536273;font-size:14px}.catalog{max-height:none;overflow:visible;border:0}.group{position:static;border-radius:8px;margin:15px 0 8px;font-size:17px}.item{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:15px 12px;margin:10px 0;border:1px solid #e0e6eb;border-radius:12px;background:#fff}.item b{font-size:16px;line-height:1.4;display:block}.item small{font-size:13px;line-height:1.45}.item .price{grid-column:1;grid-row:auto;font-size:17px;color:#183f5b;white-space:normal}.item>div:last-child{display:flex;align-items:center;gap:10px;width:100%}.item input[type=number]{width:95px;min-width:0;flex:0 0 95px;min-height:48px;font-size:17px}.item button{grid-column:auto;flex:1;min-height:48px;font-size:16px}.tools{display:flex;flex-direction:column;align-items:stretch}.tools>*{width:100%;flex:none;min-height:48px}input,textarea,select{font-size:16px;min-height:48px;width:100%}button{min-height:45px;font-size:15px}#studyPanel{scroll-margin-top:10px}.line{flex-wrap:wrap;align-items:center}.line>div:first-child{flex:1;min-width:180px}.line>div:last-child{white-space:nowrap}.muted{font-size:14px}.total{font-size:23px}#catalogPanel,#renovationPanel{display:none}#catalogPanel.active-panel,#renovationPanel.active-panel{display:block}@media(min-width:750px){.item{grid-template-columns:1fr auto 220px;align-items:center}.item .price{grid-column:auto}.tools{flex-direction:row}.tools>*{flex:1}.mode-btn{font-size:22px}}@media print{.mode-panel{display:none!important}#catalogPanel,#renovationPanel{display:none!important}}
- .calculate-all{width:100%;margin-top:18px;background:#174362;color:white;font-size:20px;font-weight:800;padding:22px 10px;border-radius:14px;position:sticky;bottom:8px;z-index:2}.item input[type=number]{font-size:19px;min-height:48px}.item .saved{color:#117046;font-weight:700} #studyPanel{display:none!important}.price{display:none!important}#lines{font-size:15px}.total{font-size:27px;color:#173c59;padding:15px 0}#requestQuote{background:#176444;font-size:17px;min-height:55px;width:100%}@media print{#requestQuote{display:none}}
-</style></head><body><header><div class="wrap"><h1>A. PETRAKIS — Δημόσιος Υπολογιστής Κόστους 2026</h1><div>Ενδεικτική εκτίμηση κόστους κατασκευής και ανακαίνισης</div></div></header><main class="wrap"><div class="mode-panel" id="modePanel"><h2>Τι θέλεις να υπολογίσεις;</h2><div class="mode-buttons"><button class="mode-btn active" id="modeBuild" type="button" aria-pressed="true">ΝΕΑ ΑΝΕΓΕΡΣΗ</button><button class="mode-btn" id="modeReno" type="button" aria-pressed="false">ΑΝΑΚΑΙΝΙΣΗ</button></div><p class="mode-description" id="modeDescription">Επίλεξε εργασίες νέας ανέγερσης από την αναλυτική λίστα.</p></div><section id="catalogPanel" class="active-panel"><h2>ΝΕΑ ΑΝΕΓΕΡΣΗ — επιλογή εργασιών</h2><div class="tools"><input id="search" type="search" placeholder="Αναζήτηση: μπετά, σοβάδες, πλακάκια, μπάνιο…"><select id="category"><option value="">Όλες οι κατηγορίες</option></select></div><p class="muted">Συμπλήρωσε ποσότητες σε όσες εργασίες θέλεις. Οι επιλογές μένουν όταν αλλάζεις κατηγορία. Πάτησε «ΥΠΟΛΟΓΙΣΜΟΣ ΚΟΣΤΟΥΣ». Εργασίες που απαιτούν ειδική προσφορά δεν υπολογίζονται στο συνολικό ποσό.</p><div id="catalog" class="catalog"></div><button type="button" class="calculate-all" id="calcBuild">ΥΠΟΛΟΓΙΣΜΟΣ ΚΟΣΤΟΥΣ</button></section><section id="renovationPanel"><h2>ΑΝΑΚΑΙΝΙΣΗ — επιλογή εργασιών</h2><p class="muted">Επίλεξε πλήρες πακέτο ανακαίνισης ή μεμονωμένες εργασίες. Στα πακέτα οι εργασίες που περιλαμβάνονται δεν προστίθενται δεύτερη φορά.</p><div class="tools"><input id="renoSearch" type="search" placeholder="Αναζήτηση ανακαίνισης: μπάνιο, πλακάκια, πόρτες…"></div><div id="renoCatalog" class="catalog"></div><button type="button" class="calculate-all" id="calcReno">ΥΠΟΛΟΓΙΣΜΟΣ ΚΟΣΤΟΥΣ</button><p class="muted">Βασικό πακέτο: δεν περιλαμβάνει κουζίνα, ντουλάπες, ηλιακό, εξοπλισμό θέρμανσης και πόρτες. Αναβαθμισμένο πακέτο: περιλαμβάνει επιπλέον ηλιακό, θέρμανση και πόρτες, όχι κουζίνα και ντουλάπες. Οι ακριβείς εξαιρέσεις επιβεβαιώνονται μετά την αυτοψία. Δεν περιλαμβάνονται ΦΠΑ και εισφορές ΕΦΚΑ/ΙΚΑ.</p></section><section id="studyPanel" style="display:none"><h2>Μελέτη μηχανικού</h2><p class="muted">Ανέβασε αρχείο .txt ή PDF με επιλέξιμο κείμενο ή επικόλλησε εδώ την προμέτρηση. Το πρόγραμμα αναζητά σχετικές εργασίες και προτείνει ποσότητες για έλεγχο. Δεν μετρά αυτόματα επιφάνειες από κατόψεις ή σαρωμένα σχέδια.</p><input id="file" type="file" accept=".txt,.pdf,text/plain,application/pdf"><p id="fileStatus" class="muted"></p><textarea id="study" placeholder="Παράδειγμα: Σοβάδες 800 m2&#10;Πλακάκια 150 m2&#10;Σκυρόδεμα 100 m3"></textarea><div class="tools"><button id="analyze">Ανάλυση κειμένου μελέτης</button><button id="clearStudy" class="secondary">Καθαρισμός</button></div><div id="suggestions"></div><p class="muted">Οι προτάσεις απαιτούν δική σου επιβεβαίωση και έλεγχο μηχανικού. Οι διαστάσεις, οι οπλισμοί και οι προδιαγραφές της εγκεκριμένης μελέτης υπερισχύουν.</p></section><section><h2>Ενδεικτικό κόστος έργου</h2><div id="lines" class="muted">Συμπλήρωσε τις ποσότητες και πάτησε Υπολογισμός.</div><p class="total" id="total">Εκτίμηση: —</p><p id="quotes" class="muted"></p><div class="tools"><button id="requestQuote">ΖΗΤΗΣΤΕ ΕΠΙΣΗΜΗ ΠΡΟΣΦΟΡΑ</button><button class="secondary" id="clear">Νέος υπολογισμός</button></div><p class="muted">Ενδεικτικές τιμές χωρίς ΦΠΑ και χωρίς ασφαλιστικές εισφορές ΕΦΚΑ (πρώην ΙΚΑ), οι οποίες υπολογίζονται ξεχωριστά όπου απαιτούνται. Η τελική προσφορά απαιτεί έλεγχο μελέτης, αυτοψία και επικαιροποίηση κόστους προμηθευτών. Αποφεύγεται η διπλή χρέωση εργασιών που περιλαμβάνονται σε συνολικό πακέτο.</p></section></main><footer class="wrap muted">A. PETRAKIS — Construction &amp; Development</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script>
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Ενδεικτικό κόστος κατασκευής και ανακαίνισης με την A. PETRAKIS. Επιλογή εργασιών ανά κατηγορία, υλικών και ποσοτήτων.">
+  <title>A. PETRAKIS | Υπολογιστής κόστους 2026</title>
+  <style>
+:root{--ink:#172b3c;--blue:#214967;--muted:#596b79;--line:#dce4ea;--soft:#edf3f7;--gold:#d2b174;--green:#176444;--error:#a12c22}
+.project-area{margin-top:20px}.project-area input{max-width:220px}.project-area label{font-size:14px}
+dialog{border:1px solid var(--line);border-radius:16px;color:var(--ink);padding:24px;width:700px;max-width:calc(100% - 24px);max-height:90vh;overflow:auto}dialog::backdrop{background:#172b3cbd}.dialog-heading{display:flex;justify-content:space-between;gap:16px;align-items:start}.dialog-heading h2{margin-bottom:5px}.dialog-heading button{flex:none}dialog label{margin-top:14px;font-size:14px}dialog textarea{min-height:110px}dialog form>button{width:100%}.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 16px}dialog input[type=file]{font-size:13px}#openStudy{margin-top:10px;width:100%}
+*{box-sizing:border-box}body{font:16px/1.5 Arial,sans-serif;background:#f3f5f7;color:var(--ink);margin:0}button,input,select,textarea{font:inherit}button,a,input,select,summary{touch-action:manipulation}button,.button{border:0;border-radius:9px;padding:12px 16px;background:var(--blue);color:white;font-weight:700;cursor:pointer;min-height:48px;line-height:1.3;text-align:center;text-decoration:none}button:hover,.button:hover{filter:brightness(.94)}button:disabled,.disabled{opacity:.46;cursor:default;pointer-events:none}.secondary{background:var(--soft);color:var(--ink)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,nav:focus-visible{outline:3px solid #b37e1d;outline-offset:3px}.wrap{max-width:960px;margin:auto;padding:18px}header{background:var(--ink);color:#fff;border-bottom:4px solid var(--gold);padding:24px 0}header .wrap{padding-top:0;padding-bottom:0}.brand{color:var(--gold);font-size:16px;font-weight:800;text-decoration:none;letter-spacing:2px}h1{font-size:30px;line-height:1.25;margin:9px 0}header p{margin:0;color:#d4dfe6}h2{font-size:22px;line-height:1.3;margin:0 0 16px}h3{font-size:23px;line-height:1.3;margin:5px 0 8px}p{margin:10px 0}section{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:16px 0}label{display:block;font-weight:700;margin-bottom:7px}input,select,textarea{border:1px solid #afbdc8;border-radius:8px;background:#fff;color:var(--ink);padding:11px;min-height:48px;width:100%;max-width:100%}input[aria-invalid=true]{border-color:var(--error);background:#fff9f7}input[type=number]{max-width:150px}small,.muted{color:var(--muted);font-size:14px}small{display:block;margin-top:7px}.mode-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mode-btn{background:var(--soft);color:var(--ink);border:2px solid transparent;min-height:70px;font-size:18px}.mode-btn.active{background:var(--ink);border-color:var(--gold);color:white}.mode-panel .muted{margin-bottom:0}.section-top{display:flex;justify-content:space-between;gap:14px;align-items:center}.eyebrow{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--muted);margin:0 0 5px}.selection-count{flex:none;background:var(--soft);padding:7px 10px;border-radius:30px;font-size:13px}.search-label{font-size:14px}.scroll-hint{font-size:13px;color:var(--muted);margin:14px 0 6px}.category-scroll{display:grid;grid-template-columns:42px minmax(0,1fr) 42px;gap:7px;margin-bottom:16px}.scroll-button{font-size:29px;padding:4px;min-height:48px}.category-nav{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;padding:4px 2px 10px;scroll-snap-type:x proximity}.category-tab{flex:none;white-space:nowrap;background:var(--soft);color:var(--ink);font-size:14px;scroll-snap-align:start;min-height:45px;border:2px solid transparent;padding:10px 12px}.category-tab.active{background:var(--ink);color:#fff;border-color:var(--gold)}.category-tab .badge{margin-inline-start:6px;border-radius:14px;background:#fff;color:var(--ink);padding:1px 6px;font-size:11px}.category-window{border:1px solid #c8d5de;border-radius:12px;overflow:hidden;background:#fafcfd}.window-top{padding:20px;border-bottom:1px solid var(--line);background:var(--soft)}.window-top p:last-child{margin-bottom:0}.work-list{max-height:590px;max-height:min(62vh,590px);overflow-y:auto;overscroll-behavior-y:contain;padding:8px 16px;scrollbar-width:thin}.work-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin:10px 0}.work-card.selected{border-inline-start:4px solid var(--green)}.work-card.blocked{background:#f7f8f9}.work-card h4{margin:0 0 4px;font-size:17px;line-height:1.4}.work-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;align-items:end;margin-top:14px}.work-fields label{font-size:13px}.work-fields .quantity-field{max-width:220px}.work-fields input{font-size:18px}.work-note{font-size:13px;color:var(--muted);margin:6px 0}.block-note{color:#8a5312;font-weight:700;font-size:13px}.step-controls{display:flex;gap:10px;justify-content:space-between;padding:16px;border-top:1px solid var(--line)}.hint{background:#fff8e8;color:#704f21;font-size:14px;border-radius:8px;padding:14px}.field-error{color:var(--error);font-size:14px}.field-error:empty{display:none}.calculate-all{width:100%;margin-top:20px;font-size:18px;padding:19px 10px}.extras-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}.extras-grid label{font-size:14px}#shippingField{margin-top:14px}.result-line{display:flex;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding:12px 0}.result-line span:last-child{text-align:right;white-space:nowrap}.result-total{border:0;background:var(--soft);padding:18px;border-radius:10px;margin:14px 0;font-size:23px;font-weight:800;align-items:center}.result-total span:first-child{font-size:17px}.result-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.quote-button{background:var(--green);flex-basis:100%;font-size:17px}.result-actions button{flex:1;white-space:nowrap;font-size:14px}details{margin:12px 0}summary{cursor:pointer;padding:12px 0;font-weight:700}.line small{margin-top:3px}.line{display:flex;gap:14px;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0;font-size:14px}.line>div:first-child{min-width:0}.line .line-cost{white-space:nowrap;text-align:right}.empty-state{padding:28px 10px;color:var(--muted);text-align:center}.disclaimer{border-top:1px solid var(--line);padding-top:16px;margin-top:20px}.selected-list{font-size:13px;color:var(--green)}footer{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:14px;color:var(--muted)}footer a{color:var(--blue)}[hidden]{display:none!important}#resultsPanel{scroll-margin-top:14px}#copyFallback{min-height:210px;margin-top:12px}
+@media(max-width:600px){.wrap{padding:10px}header{padding:20px 8px}h1{font-size:25px}header p{font-size:14px}section{padding:18px 13px;margin:12px 0}.mode-buttons{grid-template-columns:1fr}.mode-btn{min-height:58px;font-size:17px}h2{font-size:20px}.section-top{align-items:start}.selection-count{font-size:12px;padding:6px 8px}.category-scroll{grid-template-columns:34px minmax(0,1fr) 34px;gap:5px}.category-tab{font-size:13px}.window-top{padding:16px}h3{font-size:21px}.work-list{padding:6px 9px}.work-card{padding:14px 12px}.work-fields{grid-template-columns:1fr}.work-fields .quantity-field{max-width:none}.extras-grid{grid-template-columns:1fr}.step-controls{gap:7px;padding:12px 9px}.step-controls button{padding:10px;font-size:13px}.result-total{font-size:21px;flex-wrap:wrap;gap:5px}.result-total span:last-child{margin-inline-start:auto}.result-actions button{flex-basis:calc(50% - 10px);white-space:normal}.line{flex-wrap:wrap;gap:5px}.line .line-cost{margin-inline-start:auto}}
+@media print{body{background:#fff}header{background:#fff;color:#172b3c;border:0}header p{color:#172b3c}.brand{color:#172b3c}#catalogPanel,.mode-panel,#extrasPanel,.result-actions,#copyStatus,#copyFallback{display:none!important}section{border:0;margin:0;padding:8px}details{display:block}details>*{display:block}#resultsPanel{break-inside:avoid}footer{font-size:12px}a{color:inherit;text-decoration:none}}
+
+</style>
+  
+</head>
+<body>
+  <header><div class="wrap"><a class="brand" href="https://apetrakiscom.wordpress.com/">A. PETRAKIS</a><h1>Υπολογιστής κόστους έργου</h1><p>Κατασκευή και ανακαίνιση · Ενδεικτική εκτίμηση 2026</p></div></header>
+  <main class="wrap">
+    <section class="mode-panel" aria-labelledby="modeTitle">
+      <h2 id="modeTitle">Τι θέλεις να υπολογίσεις;</h2>
+      <div class="mode-buttons"><button id="modeBuild" class="mode-btn active" type="button" aria-pressed="true">ΝΕΑ ΑΝΕΓΕΡΣΗ</button><button id="modeReno" class="mode-btn" type="button" aria-pressed="false">ΑΝΑΚΑΙΝΙΣΗ</button></div>
+      <div class="project-area"><label for="projectArea">Επιφάνεια οικοδομής (m²), προαιρετικά</label><input id="projectArea" type="text" inputmode="decimal" placeholder="π.χ. 120"><small>Στη συνέχεια βάλε τις ποσότητες κάθε εργασίας από τη μελέτη του μηχανικού σου.</small></div>
+      <p class="muted">Διάλεξε κατηγορία, συμπλήρωσε ποσότητες και συνέχισε στην επόμενη. Οι επιλογές σου διατηρούνται. Όλα τα ποσά είναι καθαρά, πλέον ΦΠΑ.</p>
+      <button type="button" class="secondary" id="openStudy">Έχεις μελέτη; Στείλε αρχεία για εκτίμηση ↗</button>
+    </section>
+    <section id="catalogPanel" aria-labelledby="catalogTitle">
+      <div class="section-top"><div><p class="eyebrow" id="modeLabel">ΝΕΑ ΑΝΕΓΕΡΣΗ</p><h2 id="catalogTitle">Οι κατηγορίες του έργου σου</h2></div><span class="selection-count" id="selectionCount">0 επιλογές</span></div>
+      <label class="search-label" for="search">Αναζήτηση εργασίας</label><input id="search" type="search" placeholder="π.χ. σκυρόδεμα, πλακάκια, κουφώματα" autocomplete="off">
+      <p class="scroll-hint">Σύρε τις κατηγορίες δεξιά / αριστερά ή χρησιμοποίησε τα βέλη.</p>
+      <div class="category-scroll"><button class="scroll-button secondary" id="scrollPrev" type="button" aria-label="Κύλιση κατηγοριών προς τα πίσω">‹</button><nav id="categoryNav" class="category-nav" aria-label="Κατηγορίες εργασιών" tabindex="0"></nav><button class="scroll-button secondary" id="scrollNext" type="button" aria-label="Κύλιση κατηγοριών προς τα εμπρός">›</button></div>
+      <div id="categoryWindow" class="category-window" aria-labelledby="currentCategory">
+        <div class="window-top"><span id="stepLabel" class="eyebrow">ΕΠΙΛΟΓΗ ΚΑΤΗΓΟΡΙΑΣ</span><h3 id="currentCategory">Ένα βήμα κάθε φορά</h3><p id="categoryNote" class="muted">Πάτησε μία κατηγορία από την κυλιόμενη λίστα για να ανοίξουν οι εργασίες της.</p></div>
+        <div id="workList" class="work-list"></div>
+        <div class="step-controls"><button type="button" class="secondary" id="previousCategory">Προηγούμενη</button><button type="button" id="nextCategory">Πρώτη κατηγορία →</button></div>
+      </div>
+      <p id="packageNote" class="hint" hidden>Με πακέτο ανακαίνισης προστίθενται μόνο οι ρητά αναφερόμενες εξαιρέσεις του. Οι υπόλοιπες επιμέρους εργασίες κρατούνται για έλεγχο και δεν χρεώνονται δεύτερη φορά.</p>
+      <p id="inputStatus" class="field-error" role="status"></p>
+      <button type="button" class="calculate-all" id="calculate">ΥΠΟΛΟΓΙΣΜΟΣ ΚΟΣΤΟΥΣ</button>
+    </section>
+    <section aria-labelledby="extrasTitle" id="extrasPanel">
+      <h2 id="extrasTitle">Μεταφορικά και ΦΠΑ</h2>
+      <button type="button" class="secondary" id="openTax">Άνοιγμα υπολογιστή ΦΠΑ &amp; παρακράτησης ↗</button>
+      <div class="extras-grid"><div><label for="shippingMode">Μεταφορικά</label><select id="shippingMode"><option value="quote">Θα καθοριστούν στην προσφορά</option><option value="known">Έχω συμφωνημένο ξεχωριστό ποσό</option></select><div id="shippingField" hidden><label for="shippingValue">Καθαρό ποσό μεταφορικών (€), χωρίς ΦΠΑ</label><input id="shippingValue" type="text" inputmode="decimal" placeholder="π.χ. 150,00" aria-describedby="shippingHelp"><small id="shippingHelp">Συμπλήρωσε μόνο μεταφορικά που δεν περιλαμβάνονται ήδη στην επιλεγμένη εργασία.</small></div></div><div><label for="vatRate">ΦΠΑ (%)</label><input id="vatRate" type="number" min="0" max="100" step="0.01" value="24"><small>Η τελική προσφορά επιβεβαιώνει τον εφαρμοζόμενο συντελεστή.</small></div></div>
+      <div id="tileScopeField" class="hint" hidden><label for="tileScope">Τα γενικά m² πλακιδίων περιλαμβάνουν τις ίδιες εργασίες στα μπάνια;</label><select id="tileScope"><option value="">Επίλεξε για να αποφευχθεί διπλή χρέωση</option><option value="separate">Όχι — τα μπάνια είναι επιπλέον των γενικών m²</option><option value="included">Ναι — οι εργασίες πλακιδίων των μπάνιων περιλαμβάνονται ήδη</option></select></div>
+    </section>
+    <section id="resultsPanel" aria-labelledby="resultsTitle">
+      <p class="eyebrow">Η ΕΚΤΙΜΗΣΗ ΣΟΥ</p><h2 id="resultsTitle">Ενδεικτικό κόστος έργου</h2>
+      <div id="results"><p class="muted">Συμπλήρωσε ποσότητες και πάτησε «Υπολογισμός κόστους».</p></div>
+      <div class="result-actions"><a id="requestQuote" class="button quote-button disabled" aria-disabled="true" tabindex="-1">ΖΗΤΗΣΤΕ ΕΠΙΣΗΜΗ ΠΡΟΣΦΟΡΑ</a><button id="copyEstimate" type="button" class="secondary" disabled>Αντιγραφή εκτίμησης</button><button id="print" type="button" class="secondary">Εκτύπωση / PDF</button><button id="clear" type="button" class="secondary">Νέος υπολογισμός</button></div>
+      <p id="copyStatus" class="muted" role="status"></p><textarea id="copyFallback" aria-label="Κείμενο εκτίμησης για αντιγραφή" readonly hidden></textarea>
+      <p class="muted disclaimer">Η εκτίμηση αφορά τις επιλεγμένες εργασίες. Υλικά προμηθευτών που αναφέρονται ως επιπλέον, άδειες, μελέτες και εισφορές ΕΦΚΑ/ΙΚΑ δεν περιλαμβάνονται. Η τελική προσφορά προκύπτει μετά από αυτοψία, έλεγχο μελέτης και επικαιροποίηση κόστους.</p>
+      <noscript>Για τον υπολογισμό χρειάζεται ενεργοποιημένη JavaScript. Για προσφορά, στείλε email στο info@apetrakis.com.</noscript>
+    </section>
+  </main>
+  <dialog id="taxDialog" aria-labelledby="taxTitle"><div class="dialog-heading"><div><p class="eyebrow">ΑΝΑΛΥΣΗ ΠΟΣΩΝ</p><h2 id="taxTitle">ΦΠΑ &amp; παρακράτηση</h2></div><button type="button" class="secondary" id="closeTax" aria-label="Κλείσιμο υπολογιστή ΦΠΑ">✕</button></div><p class="muted">Βάλε ανεξάρτητο καθαρό ποσό ή χρησιμοποίησε το καθαρό σύνολο του έργου.</p><button type="button" class="secondary" id="taxUseEstimate">Χρήση καθαρού ποσού έργου</button><div class="form-grid"><div><label for="taxNet">Καθαρό ποσό (€), χωρίς ΦΠΑ</label><input id="taxNet" type="text" inputmode="decimal" placeholder="π.χ. 1000"></div><div><label for="taxVat">ΦΠΑ (%)</label><input id="taxVat" type="number" min="0" max="100" step="0.01" value="24"></div><div><label for="taxWithholdingPreset">Εφαρμόζεται παρακράτηση;</label><select id="taxWithholdingPreset"><option value="0">Όχι / δεν έχει οριστεί</option><option value="3">3% τεχνικών έργων, όπου εφαρμόζεται</option></select></div><div><label for="taxWithholding">Ποσοστό παρακράτησης (%)</label><input id="taxWithholding" type="number" min="0" max="100" step="0.01" value="0"></div></div><div id="taxOutput" aria-live="polite"></div><p class="muted">Η παρακράτηση υπολογίζεται στην καθαρή αξία, όχι στο ποσό ΦΠΑ. Η εφαρμογή της εξαρτάται από τη συναλλαγή και τον υπόχρεο πληρωμής και επιβεβαιώνεται από τον λογιστή. Το εργαλείο εμφανίζει ΦΠΑ και παρακράτηση· δεν υπολογίζει τον τελικό ετήσιο φόρο εισοδήματος.</p><p class="muted">Πηγές: <a href="https://www.aade.gr/exypiretisi-enimerosi/hristikoi-odigoi/enarxi-epiheirimatikis-drastiriotitas/basikoi-syntelestes-fpa" target="_blank" rel="noopener">Συντελεστές ΦΠΑ ΑΑΔΕ</a> · <a href="https://www.aade.gr/foros-eisodimatos-ergolipton" target="_blank" rel="noopener">Παρακράτηση εργοληπτών ΑΑΔΕ</a></p></dialog>
+  <dialog id="studyDialog" aria-labelledby="studyTitle">
+    <div class="dialog-heading"><div><p class="eyebrow">A. PETRAKIS</p><h2 id="studyTitle">Στείλε τη μελέτη σου για εκτίμηση</h2></div><button type="button" class="secondary" id="closeStudy" aria-label="Κλείσιμο παραθύρου μελέτης">✕</button></div>
+    <p class="muted">Επισύναψε σχέδια ή προμέτρηση. Η ομάδα μας θα ελέγξει τη μελέτη και θα επικοινωνήσει μαζί σου για αναλυτική προσφορά.</p>
+    <form id="studyForm" action="https://formsubmit.co/info@apetrakis.com" method="POST" enctype="multipart/form-data" target="_blank" rel="noopener noreferrer">
+      <input type="hidden" name="_subject" value="Νέα μελέτη για εκτίμηση — A. PETRAKIS">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_url" value="https://andreaspetrakis71-sudo.github.io/apetrakis-calculator/">
+      <input type="hidden" name="_next" value="https://andreaspetrakis71-sudo.github.io/apetrakis-calculator/thanks.html">
+      <div class="form-grid"><div><label for="studyName">Ονοματεπώνυμο *</label><input id="studyName" name="name" autocomplete="name" required maxlength="120"></div><div><label for="studyEmail">Email επικοινωνίας *</label><input id="studyEmail" type="email" name="email" autocomplete="email" required maxlength="254"></div><div><label for="studyPhone">Τηλέφωνο</label><input id="studyPhone" type="tel" name="Τηλέφωνο" autocomplete="tel" maxlength="40"></div><div><label for="studyLocation">Περιοχή έργου *</label><input id="studyLocation" name="Περιοχή έργου" required maxlength="200" placeholder="Πόλη / περιοχή"></div><div><label for="studyAccess">Πρόσβαση φορτηγού</label><select id="studyAccess" name="Πρόσβαση φορτηγού"><option>Δεν γνωρίζω ακόμη</option><option>Κανονική πρόσβαση</option><option>Στενός δρόμος / περιορισμένη πρόσβαση</option></select></div><div><label for="studyStart">Επιθυμητή έναρξη</label><input id="studyStart" type="date" name="Επιθυμητή έναρξη"></div></div>
+      <label for="studyMessage">Τι θέλεις να εκτιμήσουμε;</label><textarea id="studyMessage" name="message" maxlength="6000" placeholder="Περιγραφή έργου, επιφάνεια, εργασίες και τυχόν ειδικές απαιτήσεις"></textarea>
+      <label for="studyAttachment">Μελέτη ή προμέτρηση *</label><input id="studyAttachment" type="file" name="attachment" accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.xls,.csv,.txt,.dwg,.dxf" required>
+      <details><summary>Πρόσθετα αρχεία</summary><label for="studyAttachment2">Δεύτερο αρχείο</label><input id="studyAttachment2" type="file" name="attachment2" accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.xls,.csv,.txt,.dwg,.dxf"><label for="studyAttachment3">Τρίτο αρχείο</label><input id="studyAttachment3" type="file" name="attachment3" accept=".pdf,.png,.jpg,.jpeg,.docx,.xlsx,.xls,.csv,.txt,.dwg,.dxf"></details>
+      <small>Έως 3 αρχεία, συνολικά έως 10 MB. Για μεγαλύτερη μελέτη, στείλε email στο info@apetrakis.com.</small>
+      <input type="hidden" id="studyBrief" name="Επιλογές υπολογιστή">
+      <p class="muted">Παραλήπτης: <b>info@apetrakis.com</b>. Η αποστολή αρχείων εξυπηρετείται μέσω <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>. Με την αποστολή ζητάς να επικοινωνήσουμε μαζί σου για την εκτίμηση του έργου.</p>
+      <p id="studyStatus" class="field-error" role="status"></p><button type="submit" class="quote-button">ΑΠΟΣΤΟΛΗ ΜΕΛΕΤΗΣ ΓΙΑ ΕΚΤΙΜΗΣΗ</button>
+    </form>
+  </dialog>
+  <footer class="wrap"><b>A. PETRAKIS</b><span>Κατασκευές με αξίες</span><a href="mailto:info@apetrakis.com">info@apetrakis.com</a></footer>
+<script>
 const ITEMS=[{"cat": "Σκυροδέματα", "name": "Σκυρόδεμα έως 100 kg οπλισμού — εργατικά", "unit": "m³", "price": 120, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Σκυρόδεμα έως 100 kg οπλισμού — με υλικά", "unit": "m³", "price": 390, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Σκυρόδεμα 100–120 kg οπλισμού — εργατικά", "unit": "m³", "price": 130, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Σκυρόδεμα 100–120 kg οπλισμού — με υλικά", "unit": "m³", "price": 420, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Σκυρόδεμα 120–140 kg οπλισμού — εργατικά", "unit": "m³", "price": 140, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Σκυρόδεμα 120–140 kg οπλισμού — με υλικά", "unit": "m³", "price": 450, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Σκυρόδεμα αυλής ελαφρά οπλισμένο — εργατικά", "unit": "m³", "price": 120, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Σκυρόδεμα αυλής ελαφρά οπλισμένο — με υλικά", "unit": "m³", "price": 340, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Μονολιθική πισίνα (σκυρόδεμα) — εργατικά", "unit": "m³", "price": 140, "note": "", "kind": "fixed"}, {"cat": "Σκυροδέματα", "name": "Μονολιθική πισίνα (σκυρόδεμα) — με υλικά", "unit": "m³", "price": 450, "note": "", "kind": "fixed"}, {"cat": "Εκσκαφές", "name": "Εκσκαφή — Κοινό έδαφος", "unit": "m³", "price": 15, "note": "Απομάκρυνση προϊόντων εκσκαφής επιπλέον", "kind": "fixed"}, {"cat": "Εκσκαφές", "name": "Εκσκαφή — Ημιβραχώδες", "unit": "m³", "price": 30, "note": "Απομάκρυνση προϊόντων εκσκαφής επιπλέον", "kind": "fixed"}, {"cat": "Εκσκαφές", "name": "Εκσκαφή — Βραχώδες", "unit": "m³", "price": 55, "note": "Απομάκρυνση προϊόντων εκσκαφής επιπλέον", "kind": "fixed"}, {"cat": "Εκσκαφές", "name": "Μικρό μηχάνημα με χειριστή", "unit": "ώρα", "price": 60, "note": "Ελάχιστη χρέωση 2 ώρες", "kind": "fixed"}, {"cat": "Εκσκαφές", "name": "Μεσαίο μηχάνημα με χειριστή", "unit": "ώρα", "price": 100, "note": "Ελάχιστη χρέωση 2 ώρες", "kind": "fixed"}, {"cat": "Εκσκαφές", "name": "Μεγάλο μηχάνημα με χειριστή", "unit": "ώρα", "price": 120, "note": "Ελάχιστη χρέωση 2 ώρες", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Τοιχοποιία πλατάρι 7×18×18 — εργατικά", "unit": "m²", "price": 18, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Τοιχοποιία εννιάοπο — εργατικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Τοιχοποιία δωδεκάοπο — εργατικά", "unit": "m²", "price": 20, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Τοιχοποιία μονολιθική — εργατικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Τοιχοποιία τουβλίνα — εργατικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Τοιχοποιία τσιμεντόλιθος — εργατικά", "unit": "m²", "price": 18, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Τοιχοποιία πλατάρι — με υλικά", "unit": "m²", "price": 37.03, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Πρέκι 10×10 — εργατικά", "unit": "τρ.μ.", "price": 3.5, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Πρέκι 10×10 — με υλικά", "unit": "τρ.μ.", "price": 6, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Πρέκι 10×20 — εργατικά", "unit": "τρ.μ.", "price": 9.5, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Πρέκι 10×20 — με υλικά", "unit": "τρ.μ.", "price": 12, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Πρέκι 10×30 — εργατικά", "unit": "τρ.μ.", "price": 15.5, "note": "", "kind": "fixed"}, {"cat": "Τοιχοποιίες", "name": "Πρέκι 10×30 — με υλικά", "unit": "τρ.μ.", "price": 18, "note": "", "kind": "fixed"}, {"cat": "Σοβάδες", "name": "Σοβάς παραδοσιακός 3 χέρια — εργατικά", "unit": "m²", "price": 15, "note": "", "kind": "fixed"}, {"cat": "Σοβάδες", "name": "Σοβάς παραδοσιακός 3 χέρια — με υλικά", "unit": "m²", "price": 20, "note": "", "kind": "fixed"}, {"cat": "Σοβάδες", "name": "Σοβάς σακί 2 χέρια — εργατικά", "unit": "m²", "price": 17, "note": "", "kind": "fixed"}, {"cat": "Σοβάδες", "name": "Σοβάς σακί 2 χέρια — με υλικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Θερμοπρόσοψη", "name": "Θερμοπρόσοψη EPS 5 εκ. — εργατικά", "unit": "m²", "price": 30, "note": "", "kind": "fixed"}, {"cat": "Θερμοπρόσοψη", "name": "Θερμοπρόσοψη EPS 5 εκ. — με υλικά", "unit": "m²", "price": 60, "note": "", "kind": "fixed"}, {"cat": "Θερμοπρόσοψη", "name": "Θερμοπρόσοψη EPS 7 εκ. — εργατικά", "unit": "m²", "price": 30, "note": "", "kind": "fixed"}, {"cat": "Θερμοπρόσοψη", "name": "Θερμοπρόσοψη EPS 7 εκ. — με υλικά", "unit": "m²", "price": 70, "note": "", "kind": "fixed"}, {"cat": "Τσιμεντοκονίες", "name": "Τσιμεντοκονία έως 6 εκ. — εργατικά", "unit": "m²", "price": 12, "note": "", "kind": "fixed"}, {"cat": "Τσιμεντοκονίες", "name": "Τσιμεντοκονία έως 6 εκ. — με υλικά", "unit": "m²", "price": 20, "note": "", "kind": "fixed"}, {"cat": "Τσιμεντοκονίες", "name": "Τσιμεντοκονία >6 έως <10 εκ. — εργατικά", "unit": "m²", "price": 14, "note": "", "kind": "fixed"}, {"cat": "Τσιμεντοκονίες", "name": "Τσιμεντοκονία >6 έως <10 εκ. — με υλικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Τσιμεντοκονίες", "name": "Τσιμεντοκονία ≥10 εκ. — εργατικά", "unit": "m²", "price": 28, "note": "", "kind": "fixed"}, {"cat": "Τσιμεντοκονίες", "name": "Τσιμεντοκονία ≥10 εκ. — με υλικά", "unit": "m²", "price": 50, "note": "", "kind": "fixed"}, {"cat": "Τσιμεντοκονίες", "name": "Αντλία τσιμεντοκονίας", "unit": "φορά", "price": 600, "note": "", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Πλακάκια κάτω από 60×120 — εργατικά", "unit": "m²", "price": 18, "note": "", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Πλακάκια κάτω από 60×120 — με αναλώσιμα", "unit": "m²", "price": 33, "note": "Δεν περιλαμβάνεται η αγορά πλακιδίων", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Πλακάκια 60×120 — εργατικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Πλακάκια 60×120 — με αναλώσιμα", "unit": "m²", "price": 40, "note": "Δεν περιλαμβάνεται η αγορά πλακιδίων", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Πλακάκια πάνω από 60×120 — εργατικά", "unit": "m²", "price": 30, "note": "", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Πλακάκια πάνω από 60×120 — με αναλώσιμα", "unit": "m²", "price": 45, "note": "Δεν περιλαμβάνεται η αγορά πλακιδίων", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Μπάνιο έως 3 m² — εργατικά", "unit": "τεμ.", "price": 600, "note": "Υλικά/πλακάκια επιπλέον όπου δεν αναφέρονται", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Μπάνιο >3 έως 4 m² — εργατικά", "unit": "τεμ.", "price": 800, "note": "Υλικά/πλακάκια επιπλέον όπου δεν αναφέρονται", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Μπάνιο >4 έως 9 m² — εργατικά", "unit": "τεμ.", "price": 1200, "note": "Υλικά/πλακάκια επιπλέον όπου δεν αναφέρονται", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Στεγανοποίηση μπάνιου έως 3 m² — εργατικά", "unit": "τεμ.", "price": 100, "note": "Υλικά/πλακάκια επιπλέον όπου δεν αναφέρονται", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Στεγανοποίηση μπάνιου >3 έως 4 m² — εργατικά", "unit": "τεμ.", "price": 150, "note": "Υλικά/πλακάκια επιπλέον όπου δεν αναφέρονται", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Στεγανοποίηση μπάνιου >4 έως 9 m² — εργατικά", "unit": "τεμ.", "price": 250, "note": "Υλικά/πλακάκια επιπλέον όπου δεν αναφέρονται", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Σοβατεπί — εργατικά", "unit": "τρ.μ.", "price": 5, "note": "", "kind": "fixed"}, {"cat": "Πλακάκια", "name": "Σοβατεπί — με αναλώσιμα", "unit": "τρ.μ.", "price": 7, "note": "", "kind": "fixed"}, {"cat": "Πέτρες", "name": "Πέτρα επένδυσης — εργατικά", "unit": "m²", "price": 30, "note": "", "kind": "fixed"}, {"cat": "Πέτρες", "name": "Πέτρα επένδυσης — με αναλώσιμα", "unit": "m²", "price": 45, "note": "Αγορά πέτρας επιπλέον", "kind": "fixed"}, {"cat": "Πέτρες", "name": "Χτίσιμο πέτρινου τοίχου ανά εμφανή όψη", "unit": "m²", "price": 60, "note": "Χωρίς πέτρα", "kind": "fixed"}, {"cat": "Πέτρες", "name": "Γωνίες πέτρας", "unit": "τρ.μ.", "price": 60, "note": "Χωρίς πέτρα", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Επένδυση γυψοσανίδας — εργατικά", "unit": "m²", "price": 8, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Επένδυση γυψοσανίδας — με υλικά", "unit": "m²", "price": 15, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Χώρισμα 1+1 — εργατικά", "unit": "m²", "price": 15, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Χώρισμα 1+1 — με υλικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Χώρισμα 1+2 — εργατικά", "unit": "m²", "price": 17, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Χώρισμα 1+2 — με υλικά", "unit": "m²", "price": 35, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Ινοσανίδα — εργατικά", "unit": "m²", "price": 22, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Ινοσανίδα — με υλικά", "unit": "m²", "price": 50, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Εξωτερική ινοσανίδα — εργατικά", "unit": "m²", "price": 22, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Εξωτερική ινοσανίδα — με υλικά", "unit": "m²", "price": 60, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Απλή οροφή — εργατικά", "unit": "m²", "price": 8, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Απλή οροφή — με υλικά", "unit": "m²", "price": 15, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Διακοσμητική οροφή κρυφού φωτισμού — εργατικά", "unit": "m²", "price": 10, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Διακοσμητική οροφή κρυφού φωτισμού — με υλικά", "unit": "m²", "price": 20, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Γραμμικές λεπτομέρειες — εργατικά", "unit": "τρ.μ.", "price": 20, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Γραμμικές λεπτομέρειες — με υλικά", "unit": "τρ.μ.", "price": 30, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Γωνιόκρανα — εργατικά", "unit": "τρ.μ.", "price": 10, "note": "", "kind": "fixed"}, {"cat": "Γυψοσανίδες", "name": "Γωνιόκρανα — με υλικά", "unit": "τρ.μ.", "price": 15, "note": "", "kind": "fixed"}, {"cat": "Βαψίματα", "name": "Απλό βάψιμο — εργατικά", "unit": "m²", "price": 8, "note": "", "kind": "fixed"}, {"cat": "Βαψίματα", "name": "Απλό βάψιμο — με υλικά", "unit": "m²", "price": 18, "note": "", "kind": "fixed"}, {"cat": "Βαψίματα", "name": "Σπατουλάρισμα και βάψιμο — εργατικά", "unit": "m²", "price": 18, "note": "", "kind": "fixed"}, {"cat": "Βαψίματα", "name": "Σπατουλάρισμα και βάψιμο — με υλικά", "unit": "m²", "price": 25, "note": "", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Παλιά πλακάκια", "unit": "m²", "price": 15, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Μπανιέρα", "unit": "τεμ.", "price": 50, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Λεκάνη WC", "unit": "τεμ.", "price": 50, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Νιπτήρας", "unit": "τεμ.", "price": 40, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Εσωτερική πόρτα με κάσα", "unit": "τεμ.", "price": 40, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Παλιοί σοβάδες", "unit": "m²", "price": 15, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Τοίχος τούβλο 10 εκ.", "unit": "m²", "price": 30, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Τοίχος τούβλο 20 εκ.", "unit": "m²", "price": 50, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Διπλός τοίχος", "unit": "m²", "price": 50, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Παλιά κουζίνα", "unit": "τεμ.", "price": 300, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Εντοιχισμένη ντουλάπα", "unit": "τεμ.", "price": 30, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Οροφή γυψοσανίδας με σκελετό", "unit": "m²", "price": 15, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Αποξήλωση — Laminate πλωτό", "unit": "m²", "price": 5, "note": "Με αποκομιδή μπαζών", "kind": "fixed"}, {"cat": "Αποξηλώσεις", "name": "Πακέτο κατεδάφισης κατοικίας 100 m²", "unit": "πακέτο", "price": 4000, "note": "Μόνο για την περιγραφόμενη έκταση και αντικείμενο", "kind": "fixed"}, {"cat": "Κάγκελα", "name": "Τοποθέτηση απλή", "unit": "τρ.μ.", "price": 80, "note": "Αγορά κάγκελου επιπλέον", "kind": "fixed"}, {"cat": "Κάγκελα", "name": "Τοποθέτηση δύσκολη / ειδικές στερεώσεις", "unit": "τρ.μ.", "price": 100, "note": "Αγορά κάγκελου επιπλέον", "kind": "fixed"}, {"cat": "Πόρτες", "name": "Εσωτερική πόρτα — τοποθέτηση", "unit": "τεμ.", "price": 100, "note": "Προμήθεια πόρτας επιπλέον", "kind": "fixed"}, {"cat": "Πόρτες", "name": "Πόρτα ασφαλείας — περιθώριο διαχείρισης", "unit": "τεμ.", "price": 120, "note": "Προστίθεται στο συνολικό κόστος προμηθευτή με τοποθέτηση", "kind": "fixed"}, {"cat": "Ντουλάπες", "name": "Ανοιγόμενη ντουλάπα — όλα μέσα", "unit": "m²", "price": 350, "note": "", "kind": "fixed"}, {"cat": "Ντουλάπες", "name": "Συρόμενη ντουλάπα — όλα μέσα", "unit": "m²", "price": 450, "note": "", "kind": "fixed"}, {"cat": "Κουζίνες", "name": "Κουζίνα — τοποθέτηση και περιθώριο", "unit": "τεμ.", "price": 1500, "note": "Επιπλέον το πραγματικό κόστος αγοράς και μεταφορικών", "kind": "fixed"}, {"cat": "Ηλιακά", "name": "Ηλιακός Volcano 200 L — με τοποθέτηση", "unit": "τεμ.", "price": 2500, "note": "Ενδεικτική τιμή πώλησης 2.500–2.800 €", "kind": "fixed"}, {"cat": "Ανακαινίσεις", "name": "Πακέτο ανακαίνισης 800 €/m²", "unit": "m²", "price": 800, "note": "Ισχύουν οι συμφωνημένες εξαιρέσεις", "kind": "fixed"}, {"cat": "Ανακαινίσεις", "name": "Πακέτο ανακαίνισης 1.200 €/m²", "unit": "m²", "price": 1200, "note": "Ισχύουν οι συμφωνημένες εξαιρέσεις", "kind": "fixed"}, {"cat": "Στεγανοποιήσεις", "name": "Στεγανοποίηση θεμελίων — από", "unit": "m²", "price": 19, "note": "Υποχρεωτική αυτοψία, μη δεσμευτική ενδεικτική τιμή", "kind": "fixed"}, {"cat": "Στεγανοποιήσεις", "name": "Στεγανοποίηση υπογείου — από", "unit": "m²", "price": 18, "note": "Υποχρεωτική αυτοψία, μη δεσμευτική ενδεικτική τιμή", "kind": "fixed"}, {"cat": "Στεγανοποιήσεις", "name": "Ασφαλτόπανο δώματος — από", "unit": "m²", "price": 19, "note": "Υποχρεωτική αυτοψία, μη δεσμευτική ενδεικτική τιμή", "kind": "fixed"}, {"cat": "Στεγανοποιήσεις", "name": "Πολυουρεθανική στεγανοποίηση — από", "unit": "m²", "price": 20, "note": "Υποχρεωτική αυτοψία, μη δεσμευτική ενδεικτική τιμή", "kind": "fixed"}, {"cat": "Στεγανοποιήσεις", "name": "Τσιμεντοειδής στεγανοποίηση — από", "unit": "m²", "price": 17, "note": "Υποχρεωτική αυτοψία, μη δεσμευτική ενδεικτική τιμή", "kind": "fixed"}, {"cat": "Στεγανοποιήσεις", "name": "Συμβατική θερμομόνωση δώματος — από", "unit": "m²", "price": 57, "note": "Υποχρεωτική αυτοψία, μη δεσμευτική ενδεικτική τιμή", "kind": "fixed"}, {"cat": "Στεγανοποιήσεις", "name": "Ανεστραμμένη θερμομόνωση — από", "unit": "m²", "price": 67, "note": "Υποχρεωτική αυτοψία, μη δεσμευτική ενδεικτική τιμή", "kind": "fixed"}, {"cat": "Κατόπιν προσφοράς", "name": "Ηλεκτρολογικά βάσει μελέτης", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Υδραυλικά βάσει μελέτης", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Αντλία θερμότητας / ενδοδαπέδια", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Κλιματισμός", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Πέργκολες και στέγαστρα", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Πισίνα — εξοπλισμός και τελειώματα", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Μάρμαρα και γρανίτες", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Περιφράξεις και αυλόπορτες", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Κατόπιν προσφοράς", "name": "Στέγες — ειδική κατασκευή", "unit": "—", "price": null, "note": "Αυτοψία ή προσφορά προμηθευτή", "kind": "quote"}, {"cat": "Ηλεκτρολογικά", "name": "Ηλεκτρολογική εγκατάσταση κτιρίου βάσει μελέτης", "unit": "έργο", "price": 0, "kind": "quote", "note": "Απαιτείται μελέτη/προσφορά"}, {"cat": "Υδραυλικά", "name": "Υδραυλική εγκατάσταση μπάνιου", "unit": "τεμ.", "price": 0, "kind": "quote", "note": "Απαιτείται μελέτη/προσφορά"}, {"cat": "Υδραυλικά", "name": "Υδραυλική εγκατάσταση κουζίνας", "unit": "τεμ.", "price": 0, "kind": "quote", "note": "Απαιτείται μελέτη/προσφορά"}, {"cat": "Ηλεκτρολογικά", "name": "Ηλεκτρολογικός πίνακας ενισχυμένος", "unit": "τεμ.", "price": 0, "kind": "quote", "note": "Απαιτείται μελέτη/προσφορά"}, {"cat": "Αλουμίνια – Κουφώματα", "name": "Παράθυρα αλουμινίου — διαστάσεις και τύπος ανοίγματος", "unit": "τεμ.", "price": null, "note": "Τιμή προμηθευτή + 40 € εργασία + 30 € περιθώριο ανά κούφωμα, συν μεταφορικά. Ο εξοπλισμός υπολογίζεται στην προσφορά προμηθευτή, χωρίς διπλή χρέωση.", "kind": "quote"}, {"cat": "Αλουμίνια – Κουφώματα", "name": "Μπαλκονόπορτες αλουμινίου — διαστάσεις και τύπος", "unit": "τεμ.", "price": null, "note": "Τιμή προμηθευτή + 40 € εργασία + 30 € περιθώριο ανά κούφωμα, συν μεταφορικά. Ο εξοπλισμός υπολογίζεται στην προσφορά προμηθευτή, χωρίς διπλή χρέωση.", "kind": "quote"}, {"cat": "Αλουμίνια – Κουφώματα", "name": "Συρόμενα κουφώματα αλουμινίου", "unit": "τεμ.", "price": null, "note": "Τιμή προμηθευτή + 40 € εργασία + 30 € περιθώριο ανά κούφωμα, συν μεταφορικά. Ο εξοπλισμός υπολογίζεται στην προσφορά προμηθευτή, χωρίς διπλή χρέωση.", "kind": "quote"}, {"cat": "Αλουμίνια – Κουφώματα", "name": "Μηχανισμός ανάκλισης", "unit": "τεμ.", "price": null, "note": "Τιμή προμηθευτή + 40 € εργασία + 30 € περιθώριο ανά κούφωμα, συν μεταφορικά. Ο εξοπλισμός υπολογίζεται στην προσφορά προμηθευτή, χωρίς διπλή χρέωση.", "kind": "quote"}, {"cat": "Αλουμίνια – Κουφώματα", "name": "Ρολά αλουμινίου", "unit": "τεμ.", "price": null, "note": "Τιμή προμηθευτή + 40 € εργασία + 30 € περιθώριο ανά κούφωμα, συν μεταφορικά. Ο εξοπλισμός υπολογίζεται στην προσφορά προμηθευτή, χωρίς διπλή χρέωση.", "kind": "quote"}, {"cat": "Αλουμίνια – Κουφώματα", "name": "Σίτες", "unit": "τεμ.", "price": null, "note": "Τιμή προμηθευτή + 40 € εργασία + 30 € περιθώριο ανά κούφωμα, συν μεταφορικά. Ο εξοπλισμός υπολογίζεται στην προσφορά προμηθευτή, χωρίς διπλή χρέωση.", "kind": "quote"}, {"cat": "Αλουμίνια – Κουφώματα", "name": "Παντζούρια αλουμινίου", "unit": "τεμ.", "price": null, "note": "Τιμή προμηθευτή + 40 € εργασία + 30 € περιθώριο ανά κούφωμα, συν μεταφορικά. Ο εξοπλισμός υπολογίζεται στην προσφορά προμηθευτή, χωρίς διπλή χρέωση.", "kind": "quote"}];
-const $=id=>document.getElementById(id), money=n=>Number(n).toLocaleString('el-GR',{style:'currency',currency:'EUR'});
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let cart=[];
-const cats=[...new Set(ITEMS.filter(x=>x.cat!=="Ανακαινίσεις").map(x=>x.cat))];$('category').innerHTML+=[...cats].map(c=>`<option>${esc(c)}</option>`).join('');
-const entered={};
-function saveQty(key,value){if(value===''||!Number.isFinite(Number(value))||Number(value)<=0)delete entered[key];else entered[key]=Number(value);}
-function qtyField(key){return `<div><label for="q${key}">Ποσότητα</label><input id="q${key}" type="number" inputmode="decimal" min="0" step="any" placeholder="0" value="${entered[key]??''}" oninput="saveQty('${key}',this.value)"></div>`;}
-function renderCatalog(){let q=$('search').value.toLocaleLowerCase('el'),cat=$('category').value,filtered=ITEMS.map((x,i)=>({...x,i})).filter(x=>x.cat!=="Ανακαινίσεις"&&(!cat||x.cat===cat)&&(!q||(x.name+' '+x.cat).toLocaleLowerCase('el').includes(q)));let last='';$('catalog').innerHTML=filtered.map(x=>{let group=x.cat===last?'':`<div class="group">${esc(x.cat)}</div>`;last=x.cat;return group+`<div class="item"><div><b>${esc(x.name)}</b><small>${esc(x.unit)}</small></div>${qtyField('b'+x.i)}</div>`}).join('')||'<p class="hint">Δεν βρέθηκαν εργασίες.</p>'}
 const RENO_EXTRA=[
 {name:'Αποξήλωση παλιών πλακιδίων',unit:'m²',price:15,kind:'fixed',note:'Με αποκομιδή μπαζών'},
 {name:'Αποξήλωση παλιάς κουζίνας',unit:'τεμ.',price:300,kind:'fixed',note:'Με αποκομιδή μπαζών'},
@@ -31,35 +95,355 @@ const RENO_EXTRA=[
 {name:'Κουζίνα επώνυμη — προμήθεια',unit:'κουζίνα',price:null,kind:'quote',note:'Τιμή προμηθευτή και μεταφορικά + 1.500 € εγκατάσταση/περιθώριο'},
 {name:'Θέρμανση / κλιματισμός',unit:'έργο',price:null,kind:'quote',note:'Κατόπιν μηχανολογικής μελέτης'}
 ];
-function renderReno(){let q=$('renoSearch').value.toLocaleLowerCase('el');let rows=ITEMS.map((x,i)=>({...x,i,original:true})).filter(x=>x.cat==='Ανακαινίσεις').concat(RENO_EXTRA.map((x,i)=>({...x,i,original:false}))).filter(x=>(x.name+' '+(x.note||'')).toLocaleLowerCase('el').includes(q));$('renoCatalog').innerHTML=rows.map(x=>`<div class="item"><div><b>${esc(x.name)}</b><small>${esc(x.unit)}</small></div>${qtyField((x.original?'o':'e')+x.i)}</div>`).join('')||'<p class="hint">Δεν βρέθηκαν εργασίες.</p>'}
-function calculateAll(){const selection=Object.entries(entered).filter(([k,v])=>v>0).map(([k,qty])=>{let x=k[0]==='b'?ITEMS[Number(k.slice(1))]:k[0]==='o'?ITEMS[Number(k.slice(1))]:RENO_EXTRA[Number(k.slice(1))];return {...x,qty}});if(!selection.length){alert('Συμπλήρωσε ποσότητα σε τουλάχιστον μία εργασία.');return;}const packages=selection.filter(x=>x.cat==='Ανακαινίσεις');if(packages.length>1){alert('Διάλεξε μόνο ένα πακέτο ανακαίνισης.');return;}if(packages.length&&selection.length>1&&!confirm('Έχεις επιλέξει πακέτο ανακαίνισης και επιμέρους εργασίες. Βεβαιώσου ότι δεν χρεώνονται δύο φορές. Συνέχεια;'))return;cart=selection;renderCart();$('total').scrollIntoView({behavior:'smooth',block:'center'});}
-$('calcBuild').onclick=calculateAll;$('calcReno').onclick=calculateAll;
-function addReno(i,original){let x=original?ITEMS[i]:RENO_EXTRA[i],q=Number($('renoQty'+(original?'o':'e')+i)?.value)||1;if(q<=0)return;if(x.cat==='Ανακαινίσεις'&&cart.some(y=>y.cat==='Ανακαινίσεις')){alert('Επίλεξε μόνο ένα συνολικό πακέτο ανακαίνισης.');return}if(x.cat==='Ανακαινίσεις'&&cart.length&&!confirm('Έχεις ήδη επιμέρους εργασίες στην προσφορά. Έλεγξε για διπλές χρεώσεις. Συνέχεια;'))return;cart.push({...x,qty:q,cat:x.cat||'Ανακαίνιση — επιμέρους'});renderCart()}
-$('renoSearch').oninput=renderReno;renderReno();
-$('search').oninput=renderCatalog;$('category').onchange=renderCatalog;renderCatalog();
-function add(i,q){let x=ITEMS[i];q=q||Number($('qty'+i)?.value)||1;if(!(q>0))return;cart.push({...x,qty:q});renderCart()}
-function renderCart(){
- let total=0,quotes=0;
- const detail=cart.map(x=>{if(x.kind==='quote')quotes++;else total+=Number(x.price)*x.qty;
- return `<div class="line"><div><b>${esc(x.name)}</b><small style="display:block;color:#68737e">${x.qty} ${esc(x.unit)} × ${x.kind==='quote'?'Κατόπιν προσφοράς':money(x.price)}</small></div><b>${x.kind==='quote'?'—':money(x.price*x.qty)}</b></div>`;
- }).join('');
- $('lines').innerHTML=cart.length?`<details id="priceDetails"><summary style="cursor:pointer;font-weight:800;padding:14px;background:#eef3f6;border-radius:10px">ΔΕΙΤΕ ΑΝΑΛΥΤΙΚΑ ΤΟ ΚΟΣΤΟΣ (${cart.length} εργασίες)</summary><div style="padding-top:12px">${detail}</div></details>`:'Συμπλήρωσε τις ποσότητες και πάτησε Υπολογισμός.';
- $('total').textContent=cart.length?'Εκτιμώμενο συνολικό κόστος: περίπου '+money(total):'Εκτίμηση: —';
- $('quotes').textContent=quotes?`${quotes} εργασίες απαιτούν ξεχωριστή προσφορά και ΔΕΝ περιλαμβάνονται στο παραπάνω ποσό.`:'';
-}
-$('requestQuote').onclick=()=>{
- if(!cart.length){alert('Υπολόγισε πρώτα το έργο σου.');return;}
- let total=cart.reduce((n,x)=>n+(x.kind==='quote'?0:Number(x.price)*x.qty),0);
- let message='Αίτημα προσφοράς A. PETRAKIS\n\n'+cart.map(x=>`${x.name}: ${x.qty} ${x.unit}`).join('\n')+'\n\nΕνδεικτικό σύνολο: περίπου '+money(total)+'\nΧωρίς ΦΠΑ και ΕΦΚΑ/ΙΚΑ.\nΠαρακαλώ επικοινωνήστε μαζί μου για αναλυτική προσφορά.';
- navigator.clipboard?.writeText(message).then(()=>alert('Το αίτημα αντιγράφηκε. Μπορείς να το επικολλήσεις σε email ή μήνυμα.'),()=>{prompt('Αντίγραψε το αίτημα:',message)});
- if(!navigator.clipboard)prompt('Αντίγραψε το αίτημα:',message);
-};
-$('clear').onclick=()=>{cart=[];Object.keys(entered).forEach(k=>delete entered[k]);renderCatalog();renderReno();renderCart()};$('print').onclick=()=>window.print();$('clearStudy').onclick=()=>{$('study').value='';$('suggestions').innerHTML=''};
-const normalize=s=>s.toLocaleLowerCase('el').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-const hints=[[/σοβα|επιχρισμ/,/σοβά/],[/πλακακ|πλακιδ/,/πλακ/],[/σκυροδεμ|μπετ/,/Σκυρόδεμα/],[/τοιχοποι|τουβλ/,/τοιχοποι/],[/γυψοσανιδ/,/γυψοσαν/],[/θερμοπροσοψ/,/θερμοπρόσοψ/],[/βαψιμ|χρωματισμ/,/βαφ/],[/ηλεκτρολογ|πινακ/,/Ηλεκτρολογ/],[/υδραυλικ|λουτρο|μπανι|κουζιν/,/Υδραυλικ/],[/μονωσ|στεγανωσ/,/μονωσ/],[/εκσκαφ/,/Εκσκαφ/]];
-$('analyze').onclick=()=>{let lines=$('study').value.split(/\n/).map(s=>s.trim()).filter(Boolean),html=[];for(let line of lines){let n=normalize(line),hint=hints.find(([rx])=>rx.test(n));if(!hint)continue;let matches=ITEMS.map((x,i)=>({...x,i})).filter(x=>normalize(x.name+' '+x.cat).includes(normalize(hint[1].source.replace(/\\/g,''))));if(!matches.length){let terms=n.split(/\s+/);matches=ITEMS.map((x,i)=>({...x,i})).filter(x=>terms.some(t=>t.length>5&&normalize(x.name).includes(t))).slice(0,8)}if(!matches.length)continue;let qtymatch=line.match(/(\d+(?:[.,]\d+)?)\s*(?:m[²³23]|τ\.?μ\.?|τεμ|μέτρα|μ2|μ3)/i),qty=qtymatch?Number(qtymatch[1].replace(',','.')):1;let id=html.length;html.push(`<div class="suggest"><b>${esc(line)}</b><div class="tools"><select id="match${id}">${matches.slice(0,35).map(x=>`<option value="${x.i}">${esc(x.name)}</option>`).join('')}</select><input id="mq${id}" type="number" min="0.01" step="any" value="${qty}"><button onclick="add(Number($('match${id}').value),Number($('mq${id}').value))">Προσθήκη</button></div></div>`)}$('suggestions').innerHTML=html.length?'<p class="hint">Επιβεβαίωσε την αντιστοίχιση και την ποσότητα πριν προσθέσεις:</p>'+html.join(''):'<p class="hint">Δεν εντοπίστηκαν αντιστοιχίσεις. Πρόσθεσε εργασίες από τη μεγάλη λίστα.</p>'};
-$('file').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{if(/\.txt$/i.test(f.name)){$('study').value=await f.text();$('fileStatus').textContent='Το κείμενο φορτώθηκε.';return}if(/\.pdf$/i.test(f.name)){if(!window.pdfjsLib){$('fileStatus').textContent='Για ανάγνωση PDF χρειάζεται σύνδεση στο διαδίκτυο. Αν δεν φορτώθηκε η βιβλιοθήκη PDF, επικόλλησε την προμέτρηση ως κείμενο.';return}let doc=await pdfjsLib.getDocument({data:await f.arrayBuffer()}).promise,lines=[];for(let i=1;i<=Math.min(doc.numPages,40);i++){let page=await doc.getPage(i),content=await page.getTextContent();lines.push(content.items.map(x=>x.str).join(' '))}$('study').value=lines.join('\n');$('fileStatus').textContent='Αναγνώστηκαν '+Math.min(doc.numPages,40)+' σελίδες κειμένου. Ελέγξτε τις ποσότητες.';return}$('fileStatus').textContent='Επιτρέπονται αρχεία TXT ή PDF.'}catch(err){$('fileStatus').textContent='Δεν διαβάστηκε το αρχείο: '+err.message}};
 
-function setMode(mode){const build=mode==='build';$('catalogPanel').classList.toggle('active-panel',build);$('renovationPanel').classList.toggle('active-panel',!build);$('modeBuild').classList.toggle('active',build);$('modeReno').classList.toggle('active',!build);$('modeBuild').setAttribute('aria-pressed',String(build));$('modeReno').setAttribute('aria-pressed',String(!build));$('modeDescription').textContent=build?'Επίλεξε εργασίες νέας ανέγερσης από την αναλυτική λίστα.':'Επίλεξε πακέτο ή επιμέρους εργασίες ανακαίνισης.';}
-$('modeBuild').onclick=()=>setMode('build');$('modeReno').onclick=()=>setMode('reno');setMode('build');
-</script></body></html>
+
+
+// The published catalogue remains the source of all existing unit prices.
+const VAT_RATE = 24;
+function calculateTax(netValue,vatValue=24,withholdingValue=0){
+  const net=parseQuantity(netValue),vat=parseQuantity(vatValue),withholding=parseQuantity(withholdingValue);
+  if(String(netValue).trim()===''||net===null||vat===null||withholding===null||vat>100||withholding>100||String(vatValue).trim()===''||String(withholdingValue).trim()==='')return null;
+  const netCents=Math.round(net*100),vatCents=Math.round(netCents*vat/100),withholdingCents=Math.round(netCents*withholding/100);
+  return {netCents,vatCents,withholdingCents,invoiceCents:netCents+vatCents,payableCents:netCents+vatCents-withholdingCents};
+}
+const variantSuffix = /\s*—\s*(εργατικά|με υλικά|με αναλώσιμα)$/u;
+const variantName = item => item.name.match(variantSuffix)?.[1] || '';
+const baseName = item => item.name.replace(variantSuffix, '');
+const buildOrder = ['Αποξηλώσεις','Εκσκαφές','Σκυροδέματα','Στατικές ενισχύσεις','Στεγανοποιήσεις','Τοιχοποιίες','Υδραυλικά','Ηλεκτρολογικά','Αλουμίνια – Κουφώματα','Σοβάδες','Γυψοσανίδες','Θερμοπρόσοψη','Τσιμεντοκονίες','Πλακάκια','Μπάνια','Πέτρες','Βαψίματα','Πόρτες','Ντουλάπες','Κουζίνες','Ηλιακά','Κάγκελα','Κατόπιν προσφοράς'];
+const renoCategories = ['Αποξηλώσεις','Αποξηλώσεις','Αποξηλώσεις','Πλακάκια','Σοβάδες','Βαψίματα','Ντουλάπες','Ντουλάπες','Πόρτες','Ηλιακά','Υδραυλικά','Υδραυλικά','Ηλεκτρολογικά','Υδραυλικά','Κουζίνες','Θέρμανση / κλιματισμός'];
+
+function buildGroups() {
+  const groups = [];
+  for (const [index, item] of ITEMS.entries()) {
+    if (item.cat === 'Ανακαινίσεις') continue;
+    // One entry for the general electrical installation, in its own category.
+    if (index === 115) continue;
+    // One concrete quantity, with reinforcement and materials as separate choices.
+    if (index >= 2 && index <= 5) {
+      groups.find(g=>g.id==='b0').variants.push({...item,id:'b'+index,sourceIndex:index,minQty:0});
+      continue;
+    }
+    if ([51,52,54,55].includes(index)) {
+      groups.find(g=>g.id===(index<=52?'b50':'b53')).variants.push({...item,id:'b'+index,sourceIndex:index,minQty:0});
+      continue;
+    }
+    if(index===50||index===53){
+      groups.push({id:'b'+index,index,name:index===50?'Τοποθέτηση πλακιδίων μπάνιου — εργατικά':'Στεγανοποίηση μπάνιου — εργατικά',cat:'Μπάνια',variants:[{...item,id:'b'+index,sourceIndex:index,minQty:0}]});
+      continue;
+    }
+    const base = index === 22 ? baseName(ITEMS[16]) : baseName(item);
+    let group = groups.find(g => g.cat === item.cat && g.name === base && variantName(item));
+    if (!group) {
+      group = { id: 'b'+index, index, name: base, cat:item.cat, variants:[] };
+      groups.push(group);
+    }
+    group.variants.push({ ...item, id:'b'+index, sourceIndex:index, minQty: index >= 13 && index <= 15 ? 2 : 0 });
+  }
+  groups.push({id:'b135',index:135,name:'Στατικές ενισχύσεις βάσει μελέτης',cat:'Στατικές ενισχύσεις',variants:[{id:'b135',name:'Στατικές ενισχύσεις βάσει μελέτης',unit:'έργο',price:null,kind:'quote',note:'Απαιτείται έλεγχος και μελέτη μηχανικού.'}]});
+  for(const group of groups){
+    const laborOnly=group.variants.filter(v=>variantName(v)==='εργατικά');
+    if(group.id==='b50'||group.id==='b53'||(group.variants.length===1&&laborOnly.length)){
+      for(const v of laborOnly)group.variants.push({...v,id:v.id+'m',name:v.name.replace(/εργατικά$/u,'με υλικά'),price:null,kind:'quote',note:'Η εργασία με υλικά απαιτεί ξεχωριστή προσφορά προμήθειας.'});
+    }
+  }
+  return groups.sort((a,b) => buildOrder.indexOf(a.cat)-buildOrder.indexOf(b.cat));
+}
+
+const GROUPS = {
+  build: buildGroups(),
+  reno: [
+    {id:'package',index:106,name:'Πακέτο ανακαίνισης',cat:'Πακέτο ανακαίνισης',variants:ITEMS.map((item,index)=>({...item,sourceIndex:index,id:'o'+index})).filter(x=>x.cat==='Ανακαινίσεις')},
+    ...RENO_EXTRA.map((item,index)=>({id:'e'+index,index,name:item.name,cat:renoCategories[index],variants:[{...item,id:'e'+index}]})),
+    {id:'r-structural',index:135,name:'Στατικές ενισχύσεις βάσει μελέτης',cat:'Στατικές ενισχύσεις',variants:[{id:'r-structural',name:'Στατικές ενισχύσεις βάσει μελέτης',unit:'έργο',price:null,kind:'quote',note:'Απαιτείται έλεγχος και μελέτη μηχανικού.'}]}
+  ]
+};
+
+function parseQuantity(value) {
+  const s = String(value ?? '').trim();
+  if (s === '') return 0;
+  if (!/^\d+(?:[.,]\d{1,4})?$/u.test(s)) return null;
+  const n = Number(s.replace(',','.'));
+  return Number.isFinite(n) && n <= 1e8 ? n : null;
+}
+
+function createState() {
+  const settings=()=>({shippingMode:'quote',shippingValue:'',vatRate:VAT_RATE,projectArea:'',concreteGrade:'',tileScope:''});
+  return { mode:'build', selections:{build:{},reno:{}}, calculated:{build:false,reno:false}, open:{build:null,reno:null}, settings:{build:settings(),reno:settings()} };
+}
+
+function selectedPackage(selections) {
+  const value=selections.package;
+  return value && parseQuantity(value.qty)>0 ? (value.variant || 'o106') : null;
+}
+
+function blockedByPackage(group, selections) {
+  const pack=selectedPackage(selections);
+  if (!pack || group.id==='package' || group.id==='r-structural') return false;
+  // Only the exclusions explicitly documented on the existing public page
+  // may be added to a package. Other components must be reviewed, never billed twice.
+  const allowed=pack==='o107' ? ['e6','e7','e14'] : ['e6','e7','e8','e9','e14','e15'];
+  return !allowed.includes(group.id);
+}
+
+function selectionLines(state) {
+  const mode=state.mode, selections=state.selections[mode], lines=[], blocked=[], errors=[];
+  for (const group of GROUPS[mode]) {
+    const selection=selections[group.id];
+    if (!selection) continue;
+    const qty=parseQuantity(selection.qty);
+    if (qty===null) { if(mode!=='reno'||!blockedByPackage(group,selections))errors.push(group.id); continue; }
+    if (qty===0) continue;
+    const variant=group.variants.find(x=>x.id===selection.variant) || group.variants[0];
+    const line={group,variant,qty,billedQty:Math.max(qty,variant.minQty||0)};
+    if (mode==='reno' && blockedByPackage(group,selections)) { blocked.push({...line,reason:'package'}); continue; }
+    if (['τεμ.','έργο','μπάνιο','κουζίνα','πακέτο','φορά'].includes(variant.unit)&&!Number.isInteger(qty)){errors.push(group.id);continue;}
+    line.cents=variant.kind==='quote' ? null : Math.round(variant.price*line.billedQty*100);
+    if (line.cents!==null && !Number.isSafeInteger(line.cents)) {errors.push(group.id); continue;}
+    lines.push(line);
+  }
+  const tileLines=lines.some(l=>l.variant.sourceIndex>=44&&l.variant.sourceIndex<=49);
+  const bathLine=lines.find(l=>l.group.id==='b50');
+  const hasTileOverlap=mode==='build'&&tileLines&&Boolean(bathLine);
+  const tileScope=state.settings[mode].tileScope;
+  if(hasTileOverlap&&tileScope==='included'){
+    lines.splice(lines.indexOf(bathLine),1);blocked.push({...bathLine,reason:'tiles'});
+  }
+  return {lines,blocked,errors,hasTileOverlap,overlapUnresolved:hasTileOverlap&&!['included','separate'].includes(tileScope)};
+}
+
+function estimate(state) {
+  const selection=selectionLines(state);
+  const settings=state.settings[state.mode];
+  const shipping=settings.shippingMode==='known' ? parseQuantity(settings.shippingValue) : null;
+  const shippingInvalid=settings.shippingMode==='known' && (String(settings.shippingValue).trim()==='' || shipping===null);
+  const workCents=selection.lines.reduce((sum,line)=>sum+(line.cents??0),0);
+  const shippingCents=shipping===null ? null : Math.round(shipping*100);
+  const netCents=workCents+(shippingCents??0);
+  const rate=Number(settings.vatRate);
+  const vatInvalid=String(settings.vatRate).trim()===''||!Number.isFinite(rate)||rate<0||rate>100;
+  const vatCents=vatInvalid ? 0 : Math.round(netCents*rate/100);
+  const quotes=selection.lines.filter(x=>x.cents===null);
+  const pricedLines=selection.lines.filter(x=>x.cents!==null);
+  const areaInvalid=parseQuantity(settings.projectArea)===null;
+  const valid=!selection.errors.length&&!selection.overlapUnresolved&&!shippingInvalid&&!vatInvalid&&!areaInvalid&&Number.isSafeInteger(netCents+vatCents);
+  return {...selection,quotes,pricedLines,workCents,shippingCents,netCents,vatCents,totalCents:netCents+vatCents,shippingInvalid,vatInvalid,areaInvalid,valid,hasPriced:pricedLines.length>0,partial:quotes.length>0||shippingCents===null};
+}
+
+
+const $=id=>document.getElementById(id);
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=cents=>(cents/100).toLocaleString('el-GR',{style:'currency',currency:'EUR'});
+const number=n=>Number(n).toLocaleString('el-GR',{maximumFractionDigits:4});
+const normalize=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('el');
+const state=createState();
+const title=group=>group.id==='b0'?'Σκυρόδεμα κτιρίου':group.id==='b50'?'Τοποθέτηση πλακιδίων μπάνιου':group.id==='b53'?'Στεγανοποίηση μπάνιου':group.id==='package'?'Πλήρες πακέτο ανακαίνισης':group.name.replace('περιθώριο διαχείρισης','διαχείριση προμήθειας').replace('τοποθέτηση και περιθώριο','εργασία τοποθέτησης');
+const packageLabel=id=>id==='o107'?'Αναβαθμισμένο πακέτο':'Βασικό πακέτο';
+const selections=()=>state.selections[state.mode];
+const settings=()=>state.settings[state.mode];
+const findGroup=id=>GROUPS[state.mode].find(g=>g.id===id);
+const activeVariant=group=>group.variants.find(v=>v.id===selections()[group.id]?.variant)||group.variants[0];
+
+function noteFor(group,variant) {
+  if(group.id==='package')return variant.id==='o107'?'Εκτός πακέτου: κουζίνα και ντουλάπες. Ηλιακό, θέρμανση και πόρτες περιλαμβάνονται, σύμφωνα με τις προδιαγραφές της προσφοράς.':'Εκτός πακέτου: κουζίνα, ντουλάπες, ηλιακό, θέρμανση και πόρτες. Το αντικείμενο επιβεβαιώνεται στην προσφορά.';
+  if(group.cat==='Αλουμίνια – Κουφώματα')return 'Προμήθεια, διαστάσεις, εξοπλισμός και μεταφορικά επιβεβαιώνονται με προσφορά.';
+  if(group.id==='b101')return 'Η υπολογισμένη χρέωση αφορά διαχείριση. Προμήθεια και τοποθέτηση πόρτας από τον προμηθευτή επιπλέον.';
+  if(group.id==='b104')return 'Η προμήθεια της κουζίνας και τα μεταφορικά προστίθενται με ξεχωριστή προσφορά.';
+  if(group.id==='e14')return 'Προμήθεια, τοποθέτηση και μεταφορικά κατόπιν προσφοράς.';
+  if(group.id==='b105')return 'Η τελική επιλογή εξοπλισμού επιβεβαιώνεται στην προσφορά.';
+  if(group.id==='e9')return 'Δεν προστίθεται ξεχωριστά όταν επιλέγεται το αναβαθμισμένο πακέτο.';
+  return variant.note||'';
+}
+
+function matchingGroups() {
+  const q=normalize($('search').value.trim());
+  return GROUPS[state.mode].filter(g=>!q||normalize([title(g),g.cat,...g.variants.map(v=>v.name)].join(' ')).includes(q));
+}
+const categories=()=>[...new Set(matchingGroups().map(g=>g.cat))];
+
+function renderNavigation() {
+  const result=estimate(state), selected=new Set(result.lines.map(x=>x.group.id));
+  $('categoryNav').innerHTML=categories().map(cat=>{
+    const count=GROUPS[state.mode].filter(g=>g.cat===cat&&selected.has(g.id)).length;
+    const active=cat===state.open[state.mode];
+    return `<button type="button" class="category-tab${active?' active':''}" data-category="${esc(cat)}" aria-pressed="${active}">${esc(cat)}${count?`<span class="badge">${count}</span>`:''}</button>`;
+  }).join('');
+  $('selectionCount').textContent=result.lines.length+' επιλογές';
+}
+
+function renderCard(group) {
+  const saved=selections()[group.id],variant=activeVariant(group),blocked=state.mode==='reno'&&blockedByPackage(group,selections());
+  let choices='';
+  if(group.id==='b0'){
+    const index=variant.sourceIndex??0;
+    choices=`<div><label for="coverage-b0">Υλικά</label><select id="coverage-b0" data-group="b0" data-choice="concrete"><option value="0" ${index%2===0?'selected':''}>Χωρίς υλικά — μόνο εργατικά</option><option value="1" ${index%2===1?'selected':''}>Με υλικά</option></select></div><div><label for="reinforcement-b0">Κατηγορία οπλισμού</label><select id="reinforcement-b0" data-group="b0" data-choice="concrete"><option value="0" ${index<2?'selected':''}>Α · έως 100 kg/m³</option><option value="1" ${index>=2&&index<4?'selected':''}>Β · πάνω από 100 έως 120 kg/m³</option><option value="2" ${index>=4?'selected':''}>Γ · πάνω από 120 έως 140 kg/m³</option></select></div>`;
+    choices+=`<div><label for="concreteGrade">Ποιότητα σκυροδέματος της μελέτης</label><input id="concreteGrade" type="text" maxlength="24" placeholder="π.χ. C25/30" value="${esc(settings().concreteGrade)}"><small>Η τιμή του συγκεκριμένου μίγματος επιβεβαιώνεται στην επίσημη προσφορά.</small></div>`;
+  }else if(group.id==='b50'||group.id==='b53'){
+    const base=group.id==='b50'?50:53,index=(variant.sourceIndex??base)-base;
+    choices=`<div><label for="coverage-${group.id}">Υλικά</label><select id="coverage-${group.id}" data-group="${group.id}" data-choice="bath"><option value="labor" ${variant.kind!=='quote'?'selected':''}>Χωρίς υλικά — μόνο εργατικά</option><option value="materials" ${variant.kind==='quote'?'selected':''}>Με υλικά — κατόπιν προσφοράς</option></select></div><div><label for="size-${group.id}">Επιφάνεια κάθε μπάνιου</label><select id="size-${group.id}" data-group="${group.id}" data-choice="bath"><option value="0" ${index===0?'selected':''}>Έως 3 m²</option><option value="1" ${index===1?'selected':''}>Πάνω από 3 έως 4 m²</option><option value="2" ${index===2?'selected':''}>Πάνω από 4 έως 9 m²</option></select></div>`;
+  }else if(group.variants.length>1){
+    choices=`<div><label for="variant-${group.id}">${group.id==='package'?'Πακέτο':'Υλικά'}</label><select id="variant-${group.id}" data-group="${group.id}" data-choice="variant">${group.variants.map(v=>`<option value="${v.id}" ${v.id===variant.id?'selected':''}>${esc(group.id==='package'?packageLabel(v.id):variantName(v)==='εργατικά'?'Χωρίς υλικά — μόνο εργατικά':variantName(v)==='με αναλώσιμα'?'Εργασία με αναλώσιμα':'Με υλικά')}</option>`).join('')}</select></div>`;
+  }
+  const unit=variant.unit==='—'?'έργο':variant.unit;
+  return `<article class="work-card${parseQuantity(saved?.qty)>0?' selected':''}${blocked?' blocked':''}" data-card="${group.id}"><h4>${esc(title(group))}</h4><p class="work-note" id="note-${group.id}">${esc(noteFor(group,variant))}</p>${group.id==='b0'?'<p class="work-note">Η κατηγορία οπλισμού προκύπτει από τη στατική μελέτη. Για πάνω από 140 kg/m³ απαιτείται ξεχωριστή προσφορά.</p>':''}${variant.kind==='quote'?'<p class="work-note">Κατόπιν προσφοράς · δεν χρεώνεται ως μηδενικό κόστος.</p>':''}${blocked?'<p class="block-note">Με το επιλεγμένο πακέτο δεν προστίθεται ξεχωριστή χρέωση. Ελέγχεται στην τελική προσφορά.</p>':''}<div class="work-fields">${choices}<div class="quantity-field"><label for="qty-${group.id}">Ποσότητα (${esc(unit)})</label><input id="qty-${group.id}" data-quantity="${group.id}" type="text" inputmode="decimal" value="${esc(saved?.qty??'')}" placeholder="0" ${blocked?'disabled':''} aria-describedby="note-${group.id}" aria-invalid="${parseQuantity(saved?.qty)===null&&!blocked}"></div></div></article>`;
+}
+
+function renderCategory() {
+  const cats=categories(),cat=state.open[state.mode],index=cats.indexOf(cat);
+  const groups=matchingGroups().filter(g=>g.cat===cat);
+  $('stepLabel').textContent=index<0?'ΕΠΙΛΟΓΗ ΚΑΤΗΓΟΡΙΑΣ':`ΚΑΤΗΓΟΡΙΑ ${index+1} ΑΠΟ ${cats.length}`;
+  $('currentCategory').textContent=cat||'Ένα βήμα κάθε φορά';
+  $('categoryNote').textContent=cat==='Σκυροδέματα'?'Επίλεξε υλικά, κατηγορία οπλισμού και κυβικά.':cat==='Στατικές ενισχύσεις'?'Ειδική μελέτη και ξεχωριστή προσφορά μηχανικού.':cat?'Συμπλήρωσε μόνο τις εργασίες που χρειάζεσαι.':'Πάτησε μία κατηγορία από την κυλιόμενη λίστα για να ανοίξουν οι εργασίες της.';
+  $('workList').innerHTML=groups.length?groups.map(renderCard).join(''):`<p class="empty-state">${cats.length?'Οι εργασίες θα εμφανιστούν εδώ.':'Δεν βρέθηκαν εργασίες. Δοκίμασε άλλη αναζήτηση.'}</p>`;
+  $('workList').scrollTop=0;
+  $('previousCategory').disabled=index<=0;
+  $('nextCategory').disabled=!cats.length;
+  $('nextCategory').textContent=index<0?'Πρώτη κατηγορία →':index===cats.length-1?'Προς τον υπολογισμό ↓':'Επόμενη κατηγορία →';
+  $('packageNote').hidden=state.mode!=='reno'||!selectedPackage(selections());
+}
+
+function openCategory(cat,focus=false) {
+  state.open[state.mode]=cat;
+  renderNavigation();renderCategory();
+  $('categoryNav').querySelector('.active')?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+  if(focus){$('currentCategory').tabIndex=-1;$('currentCategory').focus({preventScroll:true});}
+}
+
+function showErrors(result) {
+  const messages=[];
+  if(result.errors.length)messages.push('Διόρθωσε τις ποσότητες: θετικοί αριθμοί, με κόμμα ή τελεία για δεκαδικά. Για τεμάχια, μπάνια και έργα βάλε ακέραιο αριθμό.');
+  if(result.areaInvalid)messages.push('Διόρθωσε την επιφάνεια οικοδομής.');
+  if(result.overlapUnresolved)messages.push('Διευκρίνισε αν οι εργασίες πλακιδίων στα μπάνια περιλαμβάνονται ήδη στα γενικά m².');
+  if(result.shippingInvalid)messages.push('Συμπλήρωσε το συμφωνημένο ποσό μεταφορικών ή επίλεξε «Θα καθοριστούν στην προσφορά».');
+  if(result.vatInvalid)messages.push('Συμπλήρωσε έγκυρο ποσοστό ΦΠΑ από 0 έως 100.');
+  $('inputStatus').textContent=messages.join(' ');
+  $('shippingValue').setAttribute('aria-invalid',String(result.shippingInvalid));
+  $('vatRate').setAttribute('aria-invalid',String(result.vatInvalid));
+  $('projectArea').setAttribute('aria-invalid',String(result.areaInvalid));
+  $('tileScope').setAttribute('aria-invalid',String(result.overlapUnresolved));
+}
+
+function requestMessage(result) {
+  const mode=state.mode==='build'?'Νέα ανέγερση':'Ανακαίνιση';
+  const lines=result.lines.map(line=>`${line.variant.name}: ${number(line.qty)} ${line.variant.unit}${line.billedQty>line.qty?' (ελάχιστη χρέωση '+number(line.billedQty)+')':''}${line.cents===null?' — κατόπιν προσφοράς':''}`);
+  const totals=(result.hasPriced||(result.shippingCents??0)>0)?[`Εργασίες χωρίς ΦΠΑ: ${money(result.workCents)}`,`Μεταφορικά χωρίς ΦΠΑ: ${result.shippingCents===null?'κατόπιν προσφοράς':money(result.shippingCents)}`,`Καθαρό σύνολο: ${money(result.netCents)} + ΦΠΑ`, `Επιπλέον ΦΠΑ ${settings().vatRate}%: ${money(result.vatCents)}`,`Ποσό μαζί με ΦΠΑ για το υπολογισμένο μέρος: ${money(result.totalCents)}`]:['Απαιτείται αναλυτική προσφορά για τις επιλεγμένες εργασίες.'];
+  if(result.blocked.length)totals.push('Επιμέρους εργασίες χωρίς δεύτερη χρέωση, προς έλεγχο αντικειμένου: '+result.blocked.map(x=>x.variant.name).join(', '));
+  totals.push('Εκκρεμούν οι εργασίες κατόπιν προσφοράς, τυχόν επιπλέον προμήθειες υλικών, άδειες, μελέτες και εισφορές ΕΦΚΑ/ΙΚΑ.');
+  const project=[settings().projectArea?'Επιφάνεια οικοδομής: '+settings().projectArea+' m²':'',settings().concreteGrade?'Ποιότητα σκυροδέματος μελέτης: '+settings().concreteGrade:''].filter(Boolean).join('\n');
+  return `Αίτημα προσφοράς A. PETRAKIS\n${mode}\n${project}\n\n${lines.join('\n')}\n\n${totals.join('\n')}\n\nΠεριοχή έργου:\nΣτοιχεία επικοινωνίας:\nΠαρακαλώ επικοινωνήστε μαζί μου για αναλυτική προσφορά.`;
+}
+
+function setRequestEnabled(enabled,result) {
+  const link=$('requestQuote');
+  link.classList.toggle('disabled',!enabled);link.setAttribute('aria-disabled',String(!enabled));link.tabIndex=enabled?0:-1;
+  if(enabled)link.href='mailto:info@apetrakis.com?subject='+encodeURIComponent('Αίτημα προσφοράς — A. PETRAKIS')+'&body='+encodeURIComponent(requestMessage(result));
+  else link.removeAttribute('href');
+  $('copyEstimate').disabled=!enabled;
+}
+
+function renderSummary() {
+  const result=estimate(state);
+  const ready=state.calculated[state.mode]&&result.valid&&result.lines.length>0;
+  setRequestEnabled(ready,result);
+  $('tileScopeField').hidden=!result.hasTileOverlap;
+  if(!state.calculated[state.mode]){$('results').innerHTML=result.lines.length?'<p class="muted">Οι επιλογές σου μέχρι τώρα:</p>'+result.lines.map(l=>`<div class="line"><b>${esc(l.variant.name)}</b><span>${number(l.qty)} ${esc(l.variant.unit)}</span></div>`).join('')+'<p class="muted">Πάτησε «Υπολογισμός κόστους» για τη συνολική εκτίμηση.</p>':'<p class="muted">Συμπλήρωσε ποσότητες και πάτησε «Υπολογισμός κόστους».</p>';return;}
+  showErrors(result);
+  if(!result.valid){$('results').innerHTML='<p class="field-error">Διόρθωσε τα πεδία που επισημαίνονται για να εμφανιστεί έγκυρη εκτίμηση.</p>';return;}
+  if(!result.lines.length){$('results').innerHTML='<p class="muted">Δεν έχουν επιλεγεί εργασίες για αυτόν τον υπολογισμό.</p>';return;}
+  const detail=result.lines.map(line=>`<div class="line"><div><b>${esc(line.variant.name)}</b><small>${number(line.qty)} ${esc(line.variant.unit)}${line.billedQty>line.qty?' · Ελάχιστη χρέωση '+number(line.billedQty)+' '+esc(line.variant.unit):''}${line.cents===null?'':' × '+money(Math.round(line.variant.price*100))}</small></div><div class="line-cost">${line.cents===null?'Κατόπιν προσφοράς':money(line.cents)}</div></div>`).join('');
+  const hasAmount=result.hasPriced||(result.shippingCents??0)>0;
+  const totals=hasAmount?`<div class="result-line"><span>Εργασίες χωρίς ΦΠΑ</span><span>${money(result.workCents)}</span></div><div class="result-line"><span>Μεταφορικά χωρίς ΦΠΑ</span><span>${result.shippingCents===null?'Κατόπιν προσφοράς':money(result.shippingCents)}</span></div><div class="result-line result-total"><span>${result.partial?'Υπολογισμένο καθαρό μέρος':'Καθαρό σύνολο — χωρίς ΦΠΑ'}</span><span>${money(result.netCents)} <small>+ ΦΠΑ</small></span></div><div class="result-line"><span>Επιπλέον ΦΠΑ ${esc(settings().vatRate)}%</span><span>${money(result.vatCents)}</span></div><div class="result-line"><span>Ποσό μαζί με ΦΠΑ</span><span>${money(result.totalCents)}</span></div>`:'<p class="hint">Οι επιλεγμένες εργασίες απαιτούν αναλυτική προσφορά. Δεν εμφανίζονται ως δωρεάν εργασίες.</p>';
+  const pending=[];
+  if(result.quotes.length)pending.push(`${result.quotes.length} εργασίες κατόπιν προσφοράς δεν περιλαμβάνονται στο υπολογισμένο ποσό.`);
+  if(result.shippingCents===null)pending.push('Τα μεταφορικά εκκρεμούν και δεν έχουν προστεθεί ως μηδενική χρέωση.');
+  if(settings().concreteGrade&&result.lines.some(l=>l.group.id==='b0'&&variantName(l.variant)==='με υλικά'))pending.push('Η εκτίμηση σκυροδέματος βασίζεται στην κατηγορία οπλισμού. Η τιμή του μίγματος '+settings().concreteGrade+' επιβεβαιώνεται στην επίσημη προσφορά.');
+  if(state.mode==='build'&&result.lines.some(l=>variantName(l.variant)==='εργατικά'))pending.push('Στις επιλογές «χωρίς υλικά» υπολογίζονται μόνο εργατικά.');
+  if(result.lines.some(l=>/επιπλέον|Δεν περιλαμβάνεται|Χωρίς πέτρα/i.test(l.variant.note||'')||['b101','b104'].includes(l.group.id)))pending.push('Επιπλέον προμήθειες υλικών ή εξοπλισμού επιβεβαιώνονται στην τελική προσφορά.');
+  const blocked=result.blocked.length?`<details><summary>${result.blocked.length} επιμέρους εργασίες χωρίς δεύτερη χρέωση</summary>${result.blocked.map(l=>`<p class="muted">${esc(l.variant.name)} · ${number(l.qty)} ${esc(l.variant.unit)} · ${l.reason==='tiles'?'Περιλαμβάνεται στην ποσότητα πλακιδίων που δήλωσες.':'Έλεγχος αντικειμένου πακέτου.'}</p>`).join('')}</details>`:'';
+  const wasOpen=$('priceDetails')?.open;
+  $('results').innerHTML=totals+(pending.length?`<p class="hint">${pending.map(esc).join('<br>')}</p>`:'')+`<details id="priceDetails"${wasOpen?' open':''}><summary>Δείτε αναλυτικά το κόστος (${result.lines.length} εργασίες)</summary>${detail}</details>`+blocked;
+}
+
+function refreshSelection() {
+  renderNavigation();
+  $('packageNote').hidden=state.mode!=='reno'||!selectedPackage(selections());
+  $('copyStatus').textContent='';$('copyFallback').hidden=true;
+  renderSummary();
+}
+
+function setMode(mode) {
+  state.mode=mode;$('search').value='';
+  $('modeBuild').classList.toggle('active',mode==='build');$('modeReno').classList.toggle('active',mode==='reno');
+  $('modeBuild').setAttribute('aria-pressed',String(mode==='build'));$('modeReno').setAttribute('aria-pressed',String(mode==='reno'));
+  $('modeLabel').textContent=mode==='build'?'ΝΕΑ ΑΝΕΓΕΡΣΗ':'ΑΝΑΚΑΙΝΙΣΗ';
+  $('shippingMode').value=settings().shippingMode;$('shippingValue').value=settings().shippingValue;$('vatRate').value=settings().vatRate;
+  $('projectArea').value=settings().projectArea;$('tileScope').value=settings().tileScope;
+  $('shippingField').hidden=settings().shippingMode!=='known';$('inputStatus').textContent='';
+  renderNavigation();renderCategory();renderSummary();
+  $('copyStatus').textContent='';$('copyFallback').hidden=true;
+}
+
+$('modeBuild').onclick=()=>setMode('build');$('modeReno').onclick=()=>setMode('reno');
+$('categoryNav').onclick=event=>{const button=event.target.closest('[data-category]');if(button)openCategory(button.dataset.category);};
+$('scrollPrev').onclick=()=>$('categoryNav').scrollBy({left:-250,behavior:'smooth'});
+$('scrollNext').onclick=()=>$('categoryNav').scrollBy({left:250,behavior:'smooth'});
+$('previousCategory').onclick=()=>{const cats=categories(),i=cats.indexOf(state.open[state.mode]);if(i>0)openCategory(cats[i-1],true);};
+$('nextCategory').onclick=()=>{const cats=categories(),i=cats.indexOf(state.open[state.mode]);if(i<cats.length-1)openCategory(cats[i+1],true);else $('calculate').focus();};
+$('search').oninput=()=>{const cats=categories();if($('search').value.trim()&&!cats.includes(state.open[state.mode]))state.open[state.mode]=cats[0]||null;renderNavigation();renderCategory();};
+$('workList').oninput=event=>{
+  if(event.target.id==='concreteGrade'){settings().concreteGrade=event.target.value;refreshSelection();return;}
+  const id=event.target.dataset.quantity;if(!id)return;
+  const group=findGroup(id),saved=selections()[id]||{variant:group.variants[0].id};saved.qty=event.target.value;selections()[id]=saved;
+  event.target.setAttribute('aria-invalid',String(parseQuantity(saved.qty)===null));
+  event.target.closest('.work-card').classList.toggle('selected',parseQuantity(saved.qty)>0);
+  refreshSelection();
+};
+$('workList').onchange=event=>{
+  const id=event.target.dataset.group;if(!id)return;
+  const group=findGroup(id),saved=selections()[id]||{qty:''};
+  if(event.target.dataset.choice==='concrete')saved.variant='b'+(Number($('reinforcement-b0').value)*2+Number($('coverage-b0').value));
+  else if(event.target.dataset.choice==='bath')saved.variant='b'+((id==='b50'?50:53)+Number($('size-'+id).value))+($('coverage-'+id).value==='materials'?'m':'');
+  else saved.variant=event.target.value;
+  selections()[id]=saved;$('note-'+id).textContent=noteFor(group,activeVariant(group));refreshSelection();
+};
+$('shippingMode').onchange=()=>{settings().shippingMode=$('shippingMode').value;$('shippingField').hidden=settings().shippingMode!=='known';refreshSelection();};
+$('shippingValue').oninput=()=>{settings().shippingValue=$('shippingValue').value;refreshSelection();};
+$('vatRate').oninput=()=>{settings().vatRate=$('vatRate').value;refreshSelection();};
+$('projectArea').oninput=()=>{settings().projectArea=$('projectArea').value;refreshSelection();};
+$('tileScope').onchange=()=>{settings().tileScope=$('tileScope').value;refreshSelection();};
+$('calculate').onclick=()=>{
+  const result=estimate(state);showErrors(result);
+  if(!result.valid){if(result.overlapUnresolved){$('tileScopeField').hidden=false;$('tileScope').focus();}else $('inputStatus').scrollIntoView({behavior:'smooth',block:'center'});return;}
+  if(!result.lines.length){$('inputStatus').textContent='Συμπλήρωσε ποσότητα σε τουλάχιστον μία εργασία.';return;}
+  state.calculated[state.mode]=true;renderSummary();$('resultsPanel').scrollIntoView({behavior:'smooth',block:'start'});
+};
+$('copyEstimate').onclick=async()=>{
+  const result=estimate(state);if(!result.valid||!result.lines.length)return;
+  const text=requestMessage(result);
+  try{await navigator.clipboard.writeText(text);$('copyStatus').textContent='Η εκτίμηση αντιγράφηκε. Μπορείς να την επικολλήσεις στο email σου.';}
+  catch{$('copyFallback').value=text;$('copyFallback').hidden=false;$('copyFallback').focus();$('copyFallback').select();$('copyStatus').textContent='Αντίγραψε το παρακάτω κείμενο για το email σου.';}
+};
+$('print').onclick=()=>window.print();
+$('openStudy').onclick=()=>{$('studyStatus').textContent='';$('studyDialog').showModal();};
+$('closeStudy').onclick=()=>$('studyDialog').close();
+$('openTax').onclick=()=>{$('taxDialog').showModal();renderTax();};
+$('closeTax').onclick=()=>$('taxDialog').close();
+function renderTax(){
+  const result=calculateTax($('taxNet').value,$('taxVat').value,$('taxWithholding').value);
+  $('taxOutput').innerHTML=result?`<div class="result-line result-total"><span>Καθαρή αξία</span><span>${money(result.netCents)} <small>+ ΦΠΑ</small></span></div><div class="result-line"><span>ΦΠΑ ${esc($('taxVat').value)}%</span><span>+ ${money(result.vatCents)}</span></div><div class="result-line"><span>Συνολική αξία με ΦΠΑ</span><span>${money(result.invoiceCents)}</span></div><div class="result-line"><span>Παρακράτηση ${esc($('taxWithholding').value)}% στην καθαρή αξία</span><span>− ${money(result.withholdingCents)}</span></div><div class="result-line"><b>Πληρωτέο μετά την παρακράτηση</b><b>${money(result.payableCents)}</b></div>`:'<p class="muted">Συμπλήρωσε έγκυρο καθαρό ποσό και ποσοστά από 0 έως 100.</p>';
+}
+for(const id of ['taxNet','taxVat','taxWithholding'])$(id).oninput=renderTax;
+$('taxWithholdingPreset').onchange=()=>{$('taxWithholding').value=$('taxWithholdingPreset').value;renderTax();};
+$('taxUseEstimate').onclick=()=>{const r=estimate(state);if(r.valid&&r.lines.length){$('taxNet').value=(r.netCents/100).toFixed(2);$('taxVat').value=settings().vatRate;renderTax();}else $('taxOutput').innerHTML='<p class="field-error">Ολοκλήρωσε πρώτα την επιλογή εργασιών ή πληκτρολόγησε ανεξάρτητο καθαρό ποσό.</p>';};
+$('studyForm').onsubmit=event=>{
+  const files=['studyAttachment','studyAttachment2','studyAttachment3'].flatMap(id=>Array.from($(id).files||[]));
+  const size=files.reduce((sum,file)=>sum+file.size,0);
+  if(size>10000000){event.preventDefault();$('studyStatus').textContent='Τα αρχεία ξεπερνούν συνολικά τα 10 MB. Διάλεξε μικρότερα αρχεία ή στείλε τη μελέτη με email.';return;}
+  const result=estimate(state);
+  $('studyBrief').value=result.valid&&result.lines.length?requestMessage(result):'Δεν έχει ολοκληρωθεί χειροκίνητος υπολογισμός.';
+  $('studyStatus').textContent='Η αποστολή ολοκληρώνεται στο παράθυρο επιβεβαίωσης που ανοίγει. Οι επιλογές του υπολογιστή παραμένουν εδώ.';
+};
+$('clear').onclick=()=>{const fresh=createState();state.selections[state.mode]={};state.calculated[state.mode]=false;state.open[state.mode]=null;state.settings[state.mode]=fresh.settings[state.mode];setMode(state.mode);$('catalogPanel').scrollIntoView({behavior:'smooth',block:'start'});};
+setMode('build');
+
+</script></body>
+</html>
